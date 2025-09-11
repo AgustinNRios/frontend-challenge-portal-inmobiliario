@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import Navbar from "@/components/Navbar";
 import SecondSection from "@/components/SecondSection";
+import StatisticsNumber from "@/components/StatisticsNumber";
 
 export default function Home() {
   return (
@@ -10,17 +11,21 @@ export default function Home() {
       </div>
       <main className="flex flex-col gap-[32px] items-center w-full sm:items-start">
         <section className="flex flex-row w-full justify-between ">
-          <div className="w-50% bg-[#EFEFFB4D]">
-            <h1 className="font-bold text-6xl max-w-[540px]">Buy, rent, or sell your property easily.</h1>
+          <div className="flex flex-col mx-auto gap-8 w-50% bg-[#EFEFFB4D]">
+            <h1 className="font-bold text-6xl max-w-[480px]">Buy, rent, or sell your property easily.</h1>
             <p className="max-w-[400px]">A great platform to buy, sell, or even rent your properties without any commisions.</p>
+            <div className="flex flex-row gap-12">
+              <StatisticsNumber
+                number={50}
+                text="renters"
+              />
+              <StatisticsNumber
+                number={10}
+                text="properties"
+              />
+            </div>
           </div>
           <div className="relative w-full max-w-6/12 h-[800px] bg-[url('/mapaFondo.webp')]">
-            {/* <Image 
-              src="/mapaFondo.webp" 
-              alt="mapaFondo" 
-              fill
-              className="object-cover"
-            /> */}
             <Card
               image="/prop2.webp"
               price={2700}
