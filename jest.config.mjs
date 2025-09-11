@@ -1,5 +1,5 @@
 // jest.config.mjs
-export default {
+const config = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
@@ -7,8 +7,10 @@ export default {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',
       {
-        tsconfig: 'tsconfig.json', // 👈 Asegura que use tu TS config
+        tsconfig: 'tsconfig.json',
       },
     ],
   },
 };
+
+export default config;
