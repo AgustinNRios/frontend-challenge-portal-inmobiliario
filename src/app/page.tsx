@@ -1,9 +1,6 @@
 import Card from "@/components/Card";
 import Navbar from "@/components/Navbar";
 import SecondSection from "@/components/SecondSection";
-import SwitchButton from "@/components/SwitchButton.";
-import WeMakeItEasy from "@/components/WeMakeItEasy";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -24,7 +21,19 @@ export default function Home() {
               fill
               className="object-cover"
             /> */}
-            <Card/>
+            <Card
+              image="/prop2.webp"
+              price={2700}
+              location="Beverly Sprinfield"
+              direction="1234 Beverly Hills, CA"
+              rooms={4}
+              bathrooms={2}
+              width={120}
+              height={80}
+              horizontal={false}
+              rentalMonthPrice={null}
+              scale={true}
+            />
           </div>
         </section>
         <section className="flex flex-col sm:flex-row w-full justify-between gap-8 px-6">

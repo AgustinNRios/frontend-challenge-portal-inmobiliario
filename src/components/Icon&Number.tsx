@@ -2,7 +2,7 @@ import Image from "next/image";
 
 interface Props {
     src: string;
-    number: number;
+    number: string | number;
 }
 
 export default function IconAndNumber ({src, number}: Props) {
