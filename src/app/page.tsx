@@ -5,6 +5,7 @@ import NavbarComponent from "@/components/Navbar";
 import PropertyPoint from "@/components/PropertyPoint";
 import SecondSection from "@/components/SecondSection";
 import { propertiesMock } from "@/Domains/Properties/Mocks/PropertiesMock";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,30 +17,47 @@ export default function Home() {
         <section className="w-full justify-between bg-[#efeffb8c]">
           <div className=" flex flex-col pt-7 lg:pt-0 lg:flex-row w-full px-5 justify-between items-center gap-10">
             <FirstSection/>
-            <div className="relative w-full lg:max-w-6/12 h-[800px] bg-[url('/mapaFondo.webp')]">
-              <div className="absolute top-1/12 left-5/12">
-                <PropertyPoint popoverPlacement="left" property={propertiesMock[0]} isOpen={false} scale={false}/>
+            <div className="relative w-[900px] h-[800px] bg-[url('/mapaFondo.webp')] bg-cover">
+              <div className="absolute top-[5px] left-[450px]">
+                <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false}/>
               </div>
-              <div className="absolute top-3/12 left-9/12">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[1]} isOpen={false} opacity={30}/>
+              <div className="absolute top-[165px] left-[740px]">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[3]} isOpen={false} opacity={30}/>
               </div>
-              <div className="absolute top-4/12 left-1/2">
-                <PropertyPoint popoverPlacement="left" property={propertiesMock[2]} isOpen={false} size={2}/>
+              <div className="absolute top-[260px] left-[515px]">
+                <PropertyPoint popoverPlacement="left" property={propertiesMock[2]} isOpen={false} size={3}/>
               </div>
-              <div className="absolute top-7/12 left-5/12">
-                <PropertyPoint popoverPlacement="top" property={propertiesMock[3]} isOpen={false} opacity={50}/>
+              <div className="absolute z-100 top-[470px] left-[490px]">
+                <PropertyPoint popoverPlacement="right-start" property={propertiesMock[1]} isOpen={true} opacity={50}/>
               </div>
-              <div className="absolute top-9/12 left-2/12">
+              <div className="absolute top-[515px] left-[110px]">
                 <PropertyPoint popoverPlacement="top" property={propertiesMock[4]} isOpen={false} size={2} opacity={50}/>
               </div>
-              <div className="absolute top-10/12 left-4/12">
+              <div className="absolute top-[555px] left-[357px]">
                 <PropertyPoint popoverPlacement="top-start" property={propertiesMock[5]} isOpen={false} opacity={30}/>
               </div>
-              <div className="absolute top-9/12 left-11/12">
+              <div className="absolute top-[515px] left-[810px]">
                 <PropertyPoint popoverPlacement="left" property={propertiesMock[6]} isOpen={false} size={2}/>
               </div>
-              <div className="absolute top-11/12 left-7/12">
+              <div className="absolute top-[650px] left-[393px]">
                 <PropertyPoint popoverPlacement="top" property={propertiesMock[7]} isOpen={false}/>
+              </div>
+              <div className="absolute top-[109px] left-[490px]">
+                <Image
+                  src={"/path.svg"}
+                  alt="camino"
+                  width={279}
+                  height={402}
+                  className="!w-[279px] !h-[402px]"
+                />
+              </div>
+              <div className="absolute top-[55px] left-[450px]">
+                <Image
+                  src={"/circle.svg"}
+                  alt="circulo"
+                  width={56}
+                  height={56}
+                />
               </div>
             </div>
           </div>

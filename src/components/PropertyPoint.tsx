@@ -41,8 +41,8 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
         <Image
             src={"/Location.svg"}
             alt="icono"
-            width={46}
-            height={46}
+            width={56}
+            height={60}
             className={LocationHidden ? "opacity-0 mb-1" : "mb-1"}
         />
         <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
