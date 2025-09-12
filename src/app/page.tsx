@@ -14,9 +14,9 @@ export default function Home() {
       </div>
       <main className="flex flex-col gap-16 items-center w-full sm:items-start">
         <section className="w-full justify-between bg-[#efeffb8c]">
-          <div className=" flex flex-col pt-7 lg:pt-0 lg:flex-row w-full px-5 justify-between items-center gap-10">
+          <div className=" flex flex-col pt-7 lg:pt-0 lg:flex-row w-full overflow-w-hidden px-5 justify-between items-center gap-10">
             <FirstSection/>
-            <div className="relative w-[900px] h-[800px] bg-[url('/mapaFondo.webp')] bg-cover">
+            <div className="relative w-full max-w-[900px] h-[500px] lg:h-[800px] bg-[url('/mapaFondo.webp')] bg-cover overflow-hidden shrink-0">
               <div className="absolute top-[5px] left-[450px]">
                 <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false}/>
               </div>

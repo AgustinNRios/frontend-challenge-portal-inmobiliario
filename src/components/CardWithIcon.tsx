@@ -9,8 +9,8 @@ interface Props {
 
 export default function CardWithIcon({img, title, text, isIn=true}: Props) {
     return (
-        <div className={` bg-white border-2 rounded-lg border-[#E0DEF7] min-w-[350px] ${isIn ? "flex flex-row gap-5 p-5" : "flex relative p-5 px-8"} `}>
-            <div className={`${isIn ? "" : "absolute -top-4/12 right-5"}`}>
+        <div className={` bg-white border-2 rounded-lg border-[#E0DEF7] min-w-[300px] ${isIn ? "flex flex-row gap-5 p-2 lg:p-5" : "flex relative p-2 lg:p-5 px-2 lg:px-8"} `}>
+            <div className={`${isIn ? "" : "absolute -top-4/12 right-7 lg:right-5"}`}>
                 <Image
                     src={img}
                     alt="icono"
