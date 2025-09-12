@@ -7,12 +7,16 @@ import {
     NavbarBrand,
     NavbarContent,
     NavbarItem,
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem,
     Button,
     DropdownItem,
     DropdownTrigger,
     Dropdown,
     DropdownMenu,
 } from "@heroui/react";
+import { useState } from "react";
 
 interface Props {
     fill?: string;
@@ -42,31 +46,51 @@ export const ChevronDown = ({fill, size, height, width, ...props}: Props) => {
     );
 };
 
+const HamburgerIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M3 6h18" />
+        <path d="M3 12h18" />
+        <path d="M3 18h18" />
+    </svg>
+);
+
 export default function NavbarComponent () {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const icons = {
         chevron: <ChevronDown fill="currentColor" size={16}/>
     }
+    const menuItems = [
+        "Rent",
+        "Buy",
+        "Sell",
+        "Manage Property",
+        "Resources"
+    ]
     return (
-        <Navbar className="flex flex-row max-w-[1440px] w-full items-center justify-between">
-            <NavbarBrand className="flex flex-row">
-                <Image
-                    src={"/logo.webp"}
-                    alt="Logo"
-                    width={32}
-                    height={32}
-                />
-                <p className="font-bold text-black text-lg">Estatery</p>
-            </NavbarBrand>
-            <NavbarContent className="flex flex-row gap-8">
-                <NavbarItem>
-                    Rent
-                </NavbarItem>
-                <NavbarItem>
-                    Buy
-                </NavbarItem>
-                <NavbarItem>
-                    Sell
-                </NavbarItem>
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="mx-auto w-full items-center justify-between">
+            <NavbarContent>
+                <div className="flex items-center gap-3">
+                    <NavbarMenuToggle
+                        aria-label={""}
+                        className="sm:hidden block p-2 text-black z-50"
+                        icon={<HamburgerIcon />}
+                    />
+                    <NavbarBrand className="flex flex-row">
+                        <Image
+                            src={"/logo.webp"}
+                            alt="Logo"
+                            width={32}
+                            height={32}
+                        />
+                        <p className="font-bold text-black text-lg">Estatery</p>
+                    </NavbarBrand>
+                </div>
+            </NavbarContent>
+            <NavbarContent className="hidden sm:flex flex-row gap-8" justify="center">
+                <NavbarItem>Rent</NavbarItem>
+                <NavbarItem>Buy</NavbarItem>
+                <NavbarItem>Sell</NavbarItem>
+
                 <Dropdown>
                     <NavbarItem>
                         <DropdownTrigger>
@@ -85,14 +109,10 @@ export default function NavbarComponent () {
                         aria-label="Manage properties"
                         itemClasses={{ base: "gap-4" }}
                     >
-                        <DropdownItem
-                            key="Example 1"
-                        >
+                        <DropdownItem key="Example 1">
                             Example 1
                         </DropdownItem>
-                        <DropdownItem
-                            key="Example 2"
-                        >
+                        <DropdownItem key="Example 2">
                             Example 2
                         </DropdownItem>
                     </DropdownMenu>
@@ -115,20 +135,16 @@ export default function NavbarComponent () {
                         aria-label="resources"
                         itemClasses={{ base: "gap-4" }}
                     >
-                        <DropdownItem
-                            key="example 1"
-                        >
+                        <DropdownItem key="example 1">
                             Example 1
                         </DropdownItem>
-                        <DropdownItem
-                            key="example 2"
-                        >
+                        <DropdownItem key="example 2">
                             Example 2
                         </DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </NavbarContent>
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" >
                 <NavbarItem>
                     <MainButton
                         text="Login"
@@ -140,10 +156,19 @@ export default function NavbarComponent () {
                     <MainButton
                         text="Sign Up"
                         bgColor="bg-primary"
-                        color="text-primary"
+                        color="text-white"
                     />
                 </NavbarItem>
             </NavbarContent>
+            <NavbarMenu className="bg-white px-4 pt-6">
+                {menuItems.map((item, index) => (
+                    <NavbarMenuItem key={`${item}-${index}`} className="w-full">
+                        <button className="w-full text-left py-3" onClick={() => setIsMenuOpen(false)}>
+                            {item}
+                        </button>
+                    </NavbarMenuItem>
+                ))}
+            </NavbarMenu>
         </Navbar>
     )
 }
