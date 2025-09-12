@@ -29,7 +29,7 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
     const handleSearch = async () => {
         setProperties([]);
         onOpen(); // Open the drawer immediately
-        if (!location || !dateRange) {
+        if (!location) {
             return;
         }
         setIsLoading(true);
