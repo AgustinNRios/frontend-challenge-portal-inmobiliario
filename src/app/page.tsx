@@ -1,5 +1,4 @@
 'use client'
-import Card from "@/components/Card";
 import FirstSection from "@/components/FirstSection";
 import NavbarComponent from "@/components/Navbar";
 import PropertyPoint from "@/components/PropertyPoint";

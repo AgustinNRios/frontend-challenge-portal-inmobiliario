@@ -1,5 +1,5 @@
 import { Property } from "@/Domains/Properties/model/Property";
-import {Popover, PopoverTrigger, PopoverContent, Button} from "@heroui/react";
+import {Popover, PopoverTrigger, PopoverContent} from "@heroui/react";
 import Card from "./Card";
 import Image from "next/image";
 import { useState } from "react";

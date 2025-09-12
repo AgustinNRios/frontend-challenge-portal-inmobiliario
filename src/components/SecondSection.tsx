@@ -10,7 +10,7 @@ export default function SecondSection() {
     const [isOn, setIsOn] = useState(true);
 
     return (
-        <div className="relative flex flex-wrap-reverse  lg:flex-row items-center justify-center w-full gap-16">
+        <div className="relative flex flex-wrap-reverse  lg:flex-row items-center justify-center w-full gap-16 lg:gap-32">
             <div className="relative ">
                 <Image
                     src={"/casa2.webp"}
