@@ -9,10 +9,10 @@ interface Props {
     popoverPlacement:"top-start"|"top"|"top-end"|"bottom-start"|"bottom"|"bottom-end"|"right-start"|"right"|"right-end"|"left-start"|"left"|"left-end";
     size?: 1 | 2 | 3 ;
     property: Property;
-    isOpen: boolean;
+    isOpen?: boolean;
 }
 
-export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen}: Props) {
+export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false}: Props) {
     const content = (
         <PopoverContent className="bg-transparent">
             <Card

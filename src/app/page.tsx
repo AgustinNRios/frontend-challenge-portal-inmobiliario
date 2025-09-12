@@ -31,7 +31,7 @@ export default function Home() {
               option={"Buy"}
             />
             <div className="absolute bottom-0 left-1/2">
-              <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]}/>
+              <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
             </div>
           </div>
         </section>
