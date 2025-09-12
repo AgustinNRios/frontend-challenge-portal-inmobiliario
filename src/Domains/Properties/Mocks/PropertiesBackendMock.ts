@@ -3,7 +3,7 @@ import { propertiesMock } from "./PropertiesMock";
 
 export const getPropertiesByLocationAndDate = async (
     location: string,
-    requestedRange: { start: Date; end: Date },
+    requestedRange: { start: Date; end: Date } | null,
     option: string
 ): Promise<Property[]> => {
     console.log("Filtering for:", { location, requestedRange });
@@ -20,7 +20,12 @@ export const getPropertiesByLocationAndDate = async (
                     return false;
                 }
 
-                // 2. Check for date availability overlap
+                // If no date range is provided, we don't filter by date
+                if (!requestedRange || !requestedRange.start || !requestedRange.end) {
+                    return true;
+                }
+
+                // 3. Check for date availability overlap
                 const isAvailable = property.availability.some(availableSlot => {
                     const requestedStart = requestedRange.start.getTime();
                     const requestedEnd = requestedRange.end.getTime();
