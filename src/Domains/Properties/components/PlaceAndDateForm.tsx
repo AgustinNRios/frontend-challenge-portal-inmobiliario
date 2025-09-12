@@ -51,7 +51,7 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
         <form onSubmit={handleSubmit} className="bg-white flex flex-row items-center gap-4 w-full h-auto p-6 rounded-lg shadow-md">
             <div className="flex flex-col gap-1 flex-grow">
                 <label className="font-medium text-gray-700">Location</label>
-                <Select placeholder="Select a location" onSelectionChange={selection => {
+                <Select classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
                     const selectedKey = (selection as Set<string>).values().next().value;
                     setLocation(selectedKey || '');
                 }}>
@@ -62,10 +62,9 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
             </div>
             <div className="w-px h-10 bg-gray-200"></div>
             <div className="flex flex-col gap-1">
-                <label className="font-medium text-gray-700">Date</label>
+                <label className="font-medium text-gray-700">When</label>
                 <DateRangePicker 
-                    className="max-w-xs" 
-                    label="Stay duration" 
+                    classNames={{inputWrapper: "bg-white", input: "text-xs"}}
                     onChange={(dates) => {
                         if (dates?.start && dates?.end) {
                             const timeZone = getLocalTimeZone();
