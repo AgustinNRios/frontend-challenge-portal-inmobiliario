@@ -2,8 +2,7 @@ import { Property } from "@/Domains/Properties/model/Property";
 import {Popover, PopoverTrigger, PopoverContent, Button} from "@heroui/react";
 import Card from "./Card";
 import Image from "next/image";
-
-
+import { useState } from "react";
 
 interface Props {
     popoverPlacement:"top-start"|"top"|"top-end"|"bottom-start"|"bottom"|"bottom-end"|"right-start"|"right"|"right-end"|"left-start"|"left"|"left-end";
@@ -15,6 +14,7 @@ interface Props {
 }
 
 export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false, scale=true, opacity}: Props) {
+    const [LocationHidden, setLocationHidden] = useState(!isOpen);
     const content = (
         <PopoverContent className="bg-transparent">
             <Card
@@ -37,10 +37,17 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
   
     return (
 
-    <>
-        <Popover defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
+    <div className="flex flex-col items-center">
+        <Image
+            src={"/Location.svg"}
+            alt="icono"
+            width={46}
+            height={46}
+            className={LocationHidden ? "opacity-0 mb-1" : "mb-1"}
+        />
+        <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
-            <button className={`opacity-${opacity}`}>
+            <button className={`opacity-${opacity}`} onClick={() => setLocationHidden(!LocationHidden)}>
                 <Image
                     src={"/CommonPoint.svg"}
                     alt="icono"
@@ -51,6 +58,6 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
         </PopoverTrigger>
         {content}
         </Popover>
-    </>
+    </div>
     );
   }
