@@ -7,7 +7,7 @@ export const propertiesMock: Property[] = [
         name: "Beverly Springfield",
         type: "Rent",
         image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        rentalMonthPrice: 27000,
+        rentalMonthPrice: 2700,
         price: null, // Not for sale
         location: "Palm Harbor, TX",
         direction: "2821 Lake Sevilla, Palm Harbor, TX",
@@ -28,8 +28,8 @@ export const propertiesMock: Property[] = [
         image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         rentalMonthPrice: 1600,
         price: null, // Not for sale
-        location: "Palm Harbor, TX",
-        direction: "123 Tarpon Bay, Palm Harbor, TX",
+        location: "Tarpon Bay",
+        direction: "Palm Harbor, TX",
         rooms: 4,
         bathrooms: 2,
         width: 6,
@@ -90,6 +90,60 @@ export const propertiesMock: Property[] = [
         height: 7,
         availability: [
             { start: new Date('2025-09-15'), end: new Date('2026-01-15') }
+        ]
+    },
+    {
+        id: "6",
+        ownerId: "owner-113",
+        name: "Lakeside Villa",
+        type: "Rent",
+        image: "https://images.pexels.com/photos/315191/pexels-photo-315191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        rentalMonthPrice: 4200,
+        price: null,
+        location: "Lake Tahoe, CA",
+        direction: "2500 Lakefront Ave, Lake Tahoe, CA",
+        rooms: 5,
+        bathrooms: 4,
+        width: 9,
+        height: 9,
+        availability: [
+            { start: new Date('2025-09-05'), end: new Date('2025-09-25') }
+        ]
+    },
+    {
+        id: "7",
+        ownerId: "owner-114",
+        name: "Urban Studio",
+        type: "Rent",
+        image: "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        rentalMonthPrice: 2100,
+        price: null,
+        location: "New York, NY",
+        direction: "888 Broadway, New York, NY",
+        rooms: 1,
+        bathrooms: 1,
+        width: 5,
+        height: 5,
+        availability: [
+            { start: new Date('2025-09-01'), end: new Date('2025-09-30') }
+        ]
+    },
+    {
+        id: "8",
+        ownerId: "owner-115",
+        name: "Suburban Family Home",
+        type: "Rent",
+        image: "https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        rentalMonthPrice: 3200,
+        price: null,
+        location: "Chicago, IL",
+        direction: "456 Oak St, Chicago, IL",
+        rooms: 4,
+        bathrooms: 3,
+        width: 8,
+        height: 8,
+        availability: [
+            { start: new Date('2025-09-10'), end: new Date('2025-10-10') }
         ]
     }
 ]

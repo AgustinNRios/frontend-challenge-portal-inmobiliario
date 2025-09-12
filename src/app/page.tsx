@@ -28,6 +28,7 @@ export default function Home() {
               horizontal={false}
               rentalMonthPrice={null}
               scale={true}
+              option={"Buy"}
             />
           </div>
         </section>
