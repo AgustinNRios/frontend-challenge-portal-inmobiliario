@@ -95,6 +95,8 @@ export default function NavbarComponent () {
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
+                                type="button"
+                                aria-label="Manage Property"
                                 disableRipple
                                 className="flex items-center gap-1 p-0 bg-transparent data-[hover=true]:bg-transparent"
                                 endContent={icons.chevron}
@@ -121,6 +123,8 @@ export default function NavbarComponent () {
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
+                                type="button"
+                                aria-label="Resources"
                                 disableRipple
                                 className="flex items-center gap-1 p-0 bg-transparent data-[hover=true]:bg-transparent"
                                 endContent={icons.chevron}
