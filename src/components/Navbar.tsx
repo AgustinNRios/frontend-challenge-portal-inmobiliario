@@ -67,12 +67,12 @@ export default function NavbarComponent () {
         "Resources"
     ]
     return (
-        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="mx-auto w-full items-center justify-between">
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className=" w-full items-center justify-between" maxWidth="full">
             <NavbarContent>
                 <div className="flex items-center gap-3">
                     <NavbarMenuToggle
                         aria-label={""}
-                        className="sm:hidden block p-2 text-black z-50"
+                        className="md:hidden block p-2 text-black z-50"
                         icon={<HamburgerIcon />}
                     />
                     <NavbarBrand className="flex flex-row">
@@ -86,7 +86,7 @@ export default function NavbarComponent () {
                     </NavbarBrand>
                 </div>
             </NavbarContent>
-            <NavbarContent className="hidden sm:flex flex-row gap-8" justify="center">
+            <NavbarContent className="hidden md:flex flex-row gap-8" justify="center">
                 <NavbarItem>Rent</NavbarItem>
                 <NavbarItem>Buy</NavbarItem>
                 <NavbarItem>Sell</NavbarItem>
