@@ -11,14 +11,13 @@ export default function MainButton({text, bgColor, color, img}: Props) {
     return (
         <button 
             type="button"
-            aria-label="Main Button"
             className={`py-2 px-4 flex flex-row rounded-lg ${bgColor} `}
         >
             <p className={`${color} font-medium`}>{text}</p>
             {img ? 
             <Image
                 src={img}
-                alt="button icon"
+                alt=""
                 width={20}
                 height={20}
                 className="inline-block ml-2"

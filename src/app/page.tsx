@@ -8,15 +8,15 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="font-sans  items-center justify-items-center  min-h-screen pb-8 gap-16 "> 
-      <div className="w-full p-6">
-        <NavbarComponent/>
-      </div>
+    <div className="font-sans items-center justify-items-center min-h-screen pb-8">
+      <header className="w-full p-6">
+        <NavbarComponent />
+      </header>
       <main className="flex flex-col gap-16 items-center w-full sm:items-start">
         <section className="w-full justify-between bg-[#efeffb8c]">
           <div className=" flex flex-col pt-7 lg:pt-0 lg:flex-row w-full overflow-w-hidden px-5 justify-between items-center gap-10">
             <FirstSection/>
-            <div className="relative w-full max-w-[900px] h-[500px] lg:h-[800px] bg-[url('/mapaFondo.webp')] bg-cover overflow-hidden shrink-0">
+            <div role="img" aria-label="Mapa con puntos de propiedades" className="relative w-full max-w-[900px] h-[500px] lg:h-[800px] bg-[url('/mapaFondo.webp')] bg-cover overflow-hidden shrink-0">
               <div className="absolute top-[5px] left-[450px]">
                 <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false}/>
               </div>
@@ -44,7 +44,7 @@ export default function Home() {
               <div className="absolute top-[109px] left-[490px]">
                 <Image
                   src={"/path.svg"}
-                  alt="camino"
+                  alt="camino desde la posicion actual"
                   width={279}
                   height={402}
                   className="!w-[279px] !h-[402px]"
@@ -53,7 +53,7 @@ export default function Home() {
               <div className="absolute top-[55px] left-[450px]">
                 <Image
                   src={"/circle.svg"}
-                  alt="circulo"
+                  alt="posicion actual"
                   width={56}
                   height={56}
                 />

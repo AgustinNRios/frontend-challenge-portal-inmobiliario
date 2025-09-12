@@ -53,7 +53,7 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
             <div className='flex flex-row gap-6 flex-wrap lg:flex-nowrap w-full lg:w-auto'>
                 <div className="flex flex-col gap-1 flex-grow">
                     <label className="font-medium text-gray-700">Location</label>
-                    <Select data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
+                    <Select aria-label="Location" data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
                         const selectedKey = (selection as Set<string>).values().next().value;
                         setLocation(selectedKey || '');
                     }}>
@@ -66,6 +66,7 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
                 <div className="flex flex-col gap-1">
                     <label className="font-medium text-gray-700">When</label>
                     <DateRangePicker 
+                        aria-label="When"
                         classNames={{inputWrapper: "bg-white", input: "text-xs"}}
                         data-testid="date-range-picker"
                         onChange={(dates) => {

@@ -16,7 +16,7 @@ interface Props {
 export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false, scale=true, opacity}: Props) {
     const [LocationHidden, setLocationHidden] = useState(!isOpen);
     const content = (
-        <PopoverContent className="bg-transparent">
+        <PopoverContent aria-label={`Detalles de la propiedad en ${property.direction}, ${property.location}`} className="bg-transparent">
             <Card
                 key={property.id}
                 image={property.image}
@@ -40,17 +40,17 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
     <div className="flex flex-col items-center">
         <Image
             src={"/Location.svg"}
-            alt="icono"
+            alt="Marcador de ubicación en el mapa"
             width={56}
             height={60}
             className={LocationHidden ? "opacity-0 mb-1" : "mb-1"}
         />
         <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
-            <button className={`opacity-${opacity}`} onClick={() => setLocationHidden(!LocationHidden)}>
+            <button aria-label={`Ver detalles de la propiedad en ${property.location}`} className={`opacity-${opacity}`} onClick={() => setLocationHidden(!LocationHidden)}>
                 <Image
                     src={"/CommonPoint.svg"}
-                    alt="icono"
+                    alt="Punto de interés en el mapa"
                     width={size == 1 ? 18 : size == 2 ? 14 : 10}
                     height={size == 1 ? 18 : size == 2 ? 14 : 10}
                 />

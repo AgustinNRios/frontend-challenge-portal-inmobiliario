@@ -69,9 +69,9 @@ export default function NavbarComponent () {
     return (
         <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className=" w-full items-center justify-between" maxWidth="full">
             <NavbarContent>
-                <div className="flex items-center gap-3">
+                <NavbarItem className="flex items-center gap-3">
                     <NavbarMenuToggle
-                        aria-label={""}
+                        aria-label={"Open navigation menu"}
                         className="md:hidden block text-black z-50"
                         icon={<HamburgerIcon />}
                     />
@@ -84,7 +84,7 @@ export default function NavbarComponent () {
                         />
                         <p className="font-bold text-black text-lg">Estatery</p>
                     </NavbarBrand>
-                </div>
+                </NavbarItem>
             </NavbarContent>
             <NavbarContent className="hidden md:flex flex-row gap-1  lg:gap-6 transition-all" justify="center">
                 <NavbarItem>Rent</NavbarItem>
