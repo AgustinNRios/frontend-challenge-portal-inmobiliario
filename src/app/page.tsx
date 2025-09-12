@@ -65,8 +65,6 @@ export default function Home() {
           <SecondSection/>
         </section>
       </main>
-      {/* <footer className="flex gap-[24px] flex-wrap items-center justify-center">
-      </footer> */}
     </div>
   );
 }

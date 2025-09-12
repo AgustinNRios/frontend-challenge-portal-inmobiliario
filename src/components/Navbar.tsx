@@ -72,7 +72,7 @@ export default function NavbarComponent () {
                 <div className="flex items-center gap-3">
                     <NavbarMenuToggle
                         aria-label={""}
-                        className="md:hidden block p-2 text-black z-50"
+                        className="md:hidden block text-black z-50"
                         icon={<HamburgerIcon />}
                     />
                     <NavbarBrand className="flex flex-row">
@@ -86,7 +86,7 @@ export default function NavbarComponent () {
                     </NavbarBrand>
                 </div>
             </NavbarContent>
-            <NavbarContent className="hidden md:flex flex-row gap-6" justify="center">
+            <NavbarContent className="hidden md:flex flex-row gap-1  lg:gap-6 transition-all" justify="center">
                 <NavbarItem>Rent</NavbarItem>
                 <NavbarItem>Buy</NavbarItem>
                 <NavbarItem>Sell</NavbarItem>
