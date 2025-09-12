@@ -86,7 +86,7 @@ export default function NavbarComponent () {
                     </NavbarBrand>
                 </div>
             </NavbarContent>
-            <NavbarContent className="hidden md:flex flex-row gap-8" justify="center">
+            <NavbarContent className="hidden md:flex flex-row gap-6" justify="center">
                 <NavbarItem>Rent</NavbarItem>
                 <NavbarItem>Buy</NavbarItem>
                 <NavbarItem>Sell</NavbarItem>

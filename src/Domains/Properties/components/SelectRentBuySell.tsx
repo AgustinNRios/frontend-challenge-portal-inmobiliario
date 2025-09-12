@@ -17,10 +17,10 @@ export const SelectRentBuySell = ({selected = 'Buy', setSelected}: Props) => {
     }
     return (
         <div className="flex flex-col">
-            <div className="flex flex-row p-2 w-[297px] h-[56px] rounded-t-lg bg-white">
-                <button className={`w-full h-full border-b-[3px] text-lg ${selected === "Rent" ? 'border-[#7065F0] text-[#7065F0] font-bold' : 'border-[#efefef] text-black font-medium'}`} onClick={() => setSelected("Rent")}>Rent</button>
-                <button className={`w-full h-full border-b-[3px] text-lg ${selected === "Buy" ? 'border-[#7065F0] text-[#7065F0] font-bold' : 'border-[#efefef] text-black font-medium'}`} onClick={() => setSelected("Buy")}>Buy</button>
-                <button className={`w-full h-full border-b-[3px] text-lg ${selected === "Sell" ? 'border-[#7065F0] text-[#7065F0] font-bold' : 'border-[#efefef] text-black font-medium'}`} onClick={()=>onSell()}>Sell</button>
+            <div className="flex flex-row  w-[297px] h-[56px] rounded-t-lg bg-white">
+                <button className={`w-full h-full text-lg ${selected === "Rent" ? 'border-[#7065F0] border-b-[3px] text-[#7065F0] font-bold' : 'border-[#efefef] border-b-[2px] pb-[1px] text-black font-medium'}`} onClick={() => setSelected("Rent")}>Rent</button>
+                <button className={`w-full h-full text-lg ${selected === "Buy" ? 'border-[#7065F0] border-b-[3px] text-[#7065F0] font-bold' : 'border-[#efefef] border-b-[2px] pb-[1px] text-black font-medium'}`} onClick={() => setSelected("Buy")}>Buy</button>
+                <button className={`w-full h-full text-lg ${selected === "Sell" ? 'border-[#7065F0] border-b-[3px] text-[#7065F0] font-bold' : 'border-[#efefef] border-b-[2px] pb-[1px] text-black font-medium'}`} onClick={()=>onSell()}>Sell</button>
             </div>
         </div>
     )

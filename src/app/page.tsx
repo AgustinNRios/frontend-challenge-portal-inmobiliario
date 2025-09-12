@@ -13,25 +13,34 @@ export default function Home() {
         <NavbarComponent/>
       </div>
       <main className="flex flex-col gap-16 items-center w-full sm:items-start">
-        <section className="flex flex-row w-full justify-between">
-          <FirstSection/>
-          <div className="relative w-full max-w-6/12 h-[800px] bg-[url('/mapaFondo.webp')]">
-            <Card
-              image="/prop2.webp"
-              price={2700}
-              location="Beverly Sprinfield"
-              direction="1234 Beverly Hills, CA"
-              rooms={4}
-              bathrooms={2}
-              width={120}
-              height={80}
-              horizontal={false}
-              rentalMonthPrice={null}
-              scale={true}
-              option={"Buy"}
-            />
-            <div className="absolute bottom-0 left-1/2">
-              <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+        <section className="w-full justify-between bg-[#efeffb8c]">
+          <div className=" flex flex-col pt-7 lg:pt-0 lg:flex-row w-full px-5 justify-between items-center gap-10">
+            <FirstSection/>
+            <div className="relative w-full lg:max-w-6/12 h-[800px] bg-[url('/mapaFondo.webp')]">
+              <div className="absolute top-1/12 left-5/12">
+                <PropertyPoint popoverPlacement="left" property={propertiesMock[0]} isOpen={false} scale={false}/>
+              </div>
+              <div className="absolute top-3/12 left-9/12">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false} opacity={30}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
+              <div className="absolute bottom-0 left-1/2">
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              </div>
             </div>
           </div>
         </section>

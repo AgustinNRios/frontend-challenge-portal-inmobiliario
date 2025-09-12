@@ -3,7 +3,7 @@ import StatisticsNumber from "./StatisticsNumber";
 
 export default function FirstSection() {
     return (
-        <div className="flex flex-col justify-center mx-auto gap-8 w-50% bg-[#efeffb71]">
+        <div className="flex flex-col justify-center mx-auto gap-8 w-50% ">
             <h1 className="font-bold text-6xl max-w-[480px]">Buy, rent, or sell your property easily.</h1>
             <p className="max-w-[440px] text-xl font-medium">A great platform to buy, sell, or even rent your properties without any commisions.</p>
             <div className="flex flex-row gap-16">

@@ -14,7 +14,7 @@ export const Properties = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center lg:items-start">
             <SelectRentBuySell selected={selected} setSelected={setSelected}></SelectRentBuySell>
             <PlaceAndDateForm onOpen={onOpen} option={selected} setProperties={setProperties} setIsLoading={setIsLoading}></PlaceAndDateForm>
             <PropertiesList isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} isLoading={isLoading} properties={properties} selected={selected}></PropertiesList>

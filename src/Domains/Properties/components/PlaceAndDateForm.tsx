@@ -49,39 +49,41 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
         handleSearch();
     };
     return (
-        <form onSubmit={handleSubmit} className="bg-white flex flex-row items-center gap-4 w-full h-auto p-6 rounded-lg shadow-md">
-            <div className="flex flex-col gap-1 flex-grow">
-                <label className="font-medium text-gray-700">Location</label>
-                <Select data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
-                    const selectedKey = (selection as Set<string>).values().next().value;
-                    setLocation(selectedKey || '');
-                }}>
-                    {uniqueLocationsMock.map(loc => (
-                        <SelectItem key={loc} id={loc}>{loc}</SelectItem>
-                    ))}
-                </Select>
+        <form onSubmit={handleSubmit} className="bg-white flex flex-col lg:flex-row  lg:items-center gap-3 lg:gap-6 w-full h-auto p-6 rounded-lg shadow-md">
+            <div className='flex flex-row gap-6 flex-wrap lg:flex-nowrap w-full lg:w-auto'>
+                <div className="flex flex-col gap-1 flex-grow">
+                    <label className="font-medium text-gray-700">Location</label>
+                    <Select data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
+                        const selectedKey = (selection as Set<string>).values().next().value;
+                        setLocation(selectedKey || '');
+                    }}>
+                        {uniqueLocationsMock.map(loc => (
+                            <SelectItem key={loc} id={loc}>{loc}</SelectItem>
+                        ))}
+                    </Select>
+                </div>
+                <div className="w-px h-10 bg-gray-200"></div>
+                <div className="flex flex-col gap-1">
+                    <label className="font-medium text-gray-700">When</label>
+                    <DateRangePicker 
+                        classNames={{inputWrapper: "bg-white", input: "text-xs"}}
+                        data-testid="date-range-picker"
+                        onChange={(dates) => {
+                            if (dates?.start && dates?.end) {
+                                const timeZone = getLocalTimeZone();
+                                setDateRange({ 
+                                    start: dates.start.toDate(timeZone), 
+                                    end: dates.end.toDate(timeZone) 
+                                });
+                            } else {
+                                setDateRange(null);
+                            }
+                        }} 
+                    />
+                </div>
+                <div className="w-px h-10 bg-gray-200"></div>
             </div>
-            <div className="w-px h-10 bg-gray-200"></div>
-            <div className="flex flex-col gap-1">
-                <label className="font-medium text-gray-700">When</label>
-                <DateRangePicker 
-                    classNames={{inputWrapper: "bg-white", input: "text-xs"}}
-                    data-testid="date-range-picker"
-                    onChange={(dates) => {
-                        if (dates?.start && dates?.end) {
-                            const timeZone = getLocalTimeZone();
-                            setDateRange({ 
-                                start: dates.start.toDate(timeZone), 
-                                end: dates.end.toDate(timeZone) 
-                            });
-                        } else {
-                            setDateRange(null);
-                        }
-                    }} 
-                />
-            </div>
-            <div className="w-px h-10 bg-gray-200"></div>
-            <button type="submit" className="py-2 px-6 rounded-lg bg-[#7065F0] text-white font-medium self-end">Browse Properties</button>
+            <button type="submit" className="py-2 px-6 rounded-lg bg-[#7065F0] text-white font-medium self-center lg:self-end max-w-48">Browse Properties</button>
         </form>
     );
 };

@@ -10,9 +10,11 @@ interface Props {
     size?: 1 | 2 | 3 ;
     property: Property;
     isOpen?: boolean;
+    scale?: boolean;
+    opacity?: number;
 }
 
-export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false}: Props) {
+export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false, scale=true, opacity}: Props) {
     const content = (
         <PopoverContent className="bg-transparent">
             <Card
@@ -28,7 +30,7 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
                 height={property.height}
                 horizontal={false}
                 option={property.type == 'Sale' ? 'Buy' : 'Rent'}
-                scale={true}
+                scale={scale}
             ></Card>
         </PopoverContent>
     );
@@ -38,7 +40,7 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
     <>
         <Popover defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
-            <button>
+            <button className={`opacity-${opacity}`}>
                 <Image
                     src={"/CommonPoint.svg"}
                     alt="icono"
