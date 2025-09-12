@@ -17,18 +17,23 @@ interface Props {
 }
 
 export default function Card({image, price, rentalMonthPrice, location, direction, rooms, bathrooms, width, height, horizontal = false, scale, option}: Props) {
+
+    const autoOption = option === 'Buy' || option === 'Rent' ? option : price ? 'Buy' : rentalMonthPrice ? 'Rent' : '';
     return (
         <div className={`${scale ? "scale-75" : ""}`}>
             <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full" : "flex flex-col max-w-[300px]"}`}>
                 <Image
+                    className="rounded-t-2xl"
                     src={image}
                     alt="Foto casa"
                     width={300}
                     height={200}
                 />
                 <div className="bg-white flex flex-col px-6 gap-3 mt-3">
-                                        {option === 'Buy' ? (
+                    {autoOption === 'Buy' ? (
                         <h2 className="text-2xl text-primary font-bold">{`$${price}`}</h2>
+                    ) : autoOption === 'Rent' ? (
+                        <h2 className="text-2xl text-primary font-bold">{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
                     ) : (
                         <h2 className="text-2xl text-primary font-bold">{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
                     )}

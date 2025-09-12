@@ -2,9 +2,9 @@
 import Card from "@/components/Card";
 import FirstSection from "@/components/FirstSection";
 import NavbarComponent from "@/components/Navbar";
+import PropertyPoint from "@/components/PropertyPoint";
 import SecondSection from "@/components/SecondSection";
-import StatisticsNumber from "@/components/StatisticsNumber";
-import { Properties } from "@/Domains/Properties/components/Properties";
+import { propertiesMock } from "@/Domains/Properties/Mocks/PropertiesMock";
 
 export default function Home() {
   return (
@@ -30,6 +30,9 @@ export default function Home() {
               scale={true}
               option={"Buy"}
             />
+            <div className="absolute bottom-0 left-1/2">
+              <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]}/>
+            </div>
           </div>
         </section>
         <section className="flex flex-col sm:flex-row w-full justify-between gap-8 px-6 pb-20">
