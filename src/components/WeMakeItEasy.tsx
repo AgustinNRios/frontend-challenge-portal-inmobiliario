@@ -12,7 +12,7 @@ export default function WeMakeItEasy({tenants}: Props) {
             <MainButton
                 text="See more"
                 bgColor="bg-primary"
-                color="text-primary"
+                color="text-white"
                 img="/arrowRight.svg"
             />
         </div>

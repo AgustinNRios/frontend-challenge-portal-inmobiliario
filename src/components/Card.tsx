@@ -27,7 +27,7 @@ export default function Card({image, price, location, direction, rooms, bathroom
                     height={200}
                 />
                 <div className="bg-white flex flex-col px-6 gap-3 mt-3">
-                    <h2 className="text-2xl text-[#7065F0] font-bold">{`$${price}`}<span className="text-sm font-light text-black">/month</span></h2>
+                    <h2 className="text-2xl text-primary font-bold">{`$${price}`}<span className="text-sm font-light text-black">/month</span></h2>
                     <h2 className="text-2xl text-black font-bold">{location}</h2>
                     <p className="text-base text-black font-medium">{direction}</p>
                     <div className="h-0.5 w-full bg-[#F0EFFB]"></div>
