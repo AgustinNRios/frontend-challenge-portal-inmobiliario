@@ -16,7 +16,6 @@ interface Props {
 }
 
 export default function Card({image, price, location, direction, rooms, bathrooms, width, height, horizontal = false, scale}: Props) {
-
     return (
         <div className={`${scale ? "scale-75" : ""}`}>
             <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full" : "flex flex-col max-w-[300px]"}`}>

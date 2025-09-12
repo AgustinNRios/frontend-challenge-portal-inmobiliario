@@ -1,7 +1,9 @@
+'use client'
 import Card from "@/components/Card";
 import NavbarComponent from "@/components/Navbar";
 import SecondSection from "@/components/SecondSection";
 import StatisticsNumber from "@/components/StatisticsNumber";
+import { Properties } from "@/Domains/Properties/components/Properties";
 
 export default function Home() {
   return (
@@ -24,6 +26,7 @@ export default function Home() {
                 text="properties"
               />
             </div>
+            <Properties />
           </div>
           <div className="relative w-full max-w-6/12 h-[800px] bg-[url('/mapaFondo.webp')]">
             <Card

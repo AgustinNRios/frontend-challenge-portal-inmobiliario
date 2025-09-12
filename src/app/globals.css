@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin '../hero.ts';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --color-primary: #7065F0;  /* Color principal */
@@ -24,7 +27,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #000000;
+  --foreground: #181818;
   --font-sans: var(--font-plus-jakarta-sans);
 }
 

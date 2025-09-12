@@ -1,0 +1,86 @@
+"use client";
+
+import { Dispatch, SetStateAction, useId, useState } from 'react';
+import { DateRangePicker, Select, SelectItem } from '@heroui/react';
+import { getLocalTimeZone } from '@internationalized/date';
+import { propertiesMock } from '../Mocks/PropertiesMock';
+import { Property } from '../model/Property';
+import { fetchProperties } from '../service/PropertiesService';
+
+// Get unique locations from the mock data
+const uniqueLocationsMock = [
+  "Palm Harbor, TX",
+  "Beverly Hills, CA",
+  "Miami, FL",
+  "Orlando, FL",
+  "Austin, TX"
+];
+
+interface Props {
+    option: string;
+    setIsLoading: Dispatch<SetStateAction<boolean>>;
+    setProperties: Dispatch<SetStateAction<Property[]>>;
+}
+
+export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
+    const [location, setLocation] = useState('');
+    const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
+
+    const handleSearch = async () => {
+        console.log('handle', location)
+        if (!location || !dateRange) {
+            return;
+        }
+        setIsLoading(true);
+        try {
+            const results = await fetchProperties(location, dateRange);
+            setProperties(results);
+        } catch (error) {
+            console.error("Search failed:", error);
+            setProperties([]); // Clear properties on error
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        handleSearch();
+    };
+    return (
+        <form onSubmit={handleSubmit} className="bg-white flex flex-row items-center gap-4 w-full h-auto p-6 rounded-lg shadow-md">
+            <div className="flex flex-col gap-1 flex-grow">
+                <label className="font-medium text-gray-700">Location</label>
+                <Select placeholder="Select a location" onSelectionChange={selection => {
+                    const selectedKey = (selection as Set<string>).values().next().value;
+                    setLocation(selectedKey || '');
+                }}>
+                    {uniqueLocationsMock.map(loc => (
+                        <SelectItem key={loc} id={loc}>{loc}</SelectItem>
+                    ))}
+                </Select>
+            </div>
+            <div className="w-px h-10 bg-gray-200"></div>
+            <div className="flex flex-col gap-1">
+                <label className="font-medium text-gray-700">Date</label>
+                <DateRangePicker 
+                    className="max-w-xs" 
+                    label="Stay duration" 
+                    onChange={(dates) => {
+                        if (dates?.start && dates?.end) {
+                            const timeZone = getLocalTimeZone();
+                            setDateRange({ 
+                                start: dates.start.toDate(timeZone), 
+                                end: dates.end.toDate(timeZone) 
+                            });
+                        } else {
+                            setDateRange(null);
+                        }
+                    }} 
+                />
+            </div>
+            <div className="w-px h-10 bg-gray-200"></div>
+            <button type="submit" className="py-2 px-6 rounded-lg bg-[#7065F0] text-white font-medium self-end">Browse Properties</button>
+        </form>
+    );
+};

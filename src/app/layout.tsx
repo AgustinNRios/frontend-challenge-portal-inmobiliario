@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
 
 // Configuración de la fuente Plus Jakarta Sans
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -25,7 +26,7 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} antialiased `}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

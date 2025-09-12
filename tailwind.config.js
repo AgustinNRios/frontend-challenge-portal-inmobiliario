@@ -1,9 +1,11 @@
+const { heroui } = require("@heroui/react");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}", // si usás la App Router
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/components/(navbar|toast|spinner).js"
   ],
   theme: {
     extend: {
@@ -12,5 +14,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [heroui()],
 };
