@@ -17,7 +17,6 @@ interface Props {
 }
 
 export default function Card({image, price, rentalMonthPrice, location, direction, rooms, bathrooms, width, height, horizontal = false, scale, option}: Props) {
-
     const autoOption = option === 'Buy' || option === 'Rent' ? option : price ? 'Buy' : rentalMonthPrice ? 'Rent' : '';
     return (
         <div className={`${scale ? "scale-75" : ""}`}>

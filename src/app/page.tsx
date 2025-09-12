@@ -1,8 +1,8 @@
 'use client'
 import FirstSection from "@/components/FirstSection";
 import NavbarComponent from "@/components/Navbar";
-import PropertyPoint from "@/components/PropertyPoint";
-import SecondSection from "@/components/SecondSection";
+import PropertyPoint from "@/Domains/Properties/components/PropertyPoint";
+import SecondSection from "@/components/withState/SecondSection";
 import { propertiesMock } from "@/Domains/Properties/Mocks/PropertiesMock";
 import Image from "next/image";
 

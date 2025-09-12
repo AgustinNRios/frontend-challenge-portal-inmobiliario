@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react";
-import SwitchButton from "./SwitchButton.";
-import WeMakeItEasy from "./WeMakeItEasy";
+import SwitchButton from "../SwitchButton.";
+import WeMakeItEasy from "../WeMakeItEasy";
 import Image from "next/image";
-import CardWithIcon from "./CardWithIcon";
+import CardWithIcon from "../CardWithIcon";
 
 export default function SecondSection() {
     const [isOn, setIsOn] = useState(true);
