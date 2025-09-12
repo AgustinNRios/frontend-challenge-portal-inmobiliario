@@ -3,7 +3,8 @@ import { Property } from '../model/Property';
 
 export const fetchProperties = (
     location: string, 
-    dateRange: { start: Date; end: Date }
+    dateRange: { start: Date; end: Date },
+    option: string
 ): Promise<Property[]> => {
-    return getPropertiesFromMock(location, dateRange);
+    return getPropertiesFromMock(location, dateRange, option);
 };

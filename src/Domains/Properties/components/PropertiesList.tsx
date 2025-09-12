@@ -4,9 +4,6 @@ import {
     DrawerContent,
     DrawerHeader,
     DrawerBody,
-    DrawerFooter,
-    Button,
-    useDisclosure,
 } from "@heroui/react";
 import Card from '@/components/Card';
 import { Property } from '../model/Property';
@@ -14,27 +11,25 @@ import { Property } from '../model/Property';
 interface Props {
     properties: Property[];
     isLoading: boolean;
+    isOpen: boolean;
+    onOpen: () => void;
+    onOpenChange: () => void;
+    selected: string;
 }
 
-export const PropertiesList = ({ properties, isLoading }: Props) => {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
-    if (isLoading) {
-        return <div>Loading properties...</div>;
-    }
-
-    if (properties.length === 0) {
-        return <div>No properties found for the selected criteria.</div>;
-    }
+export const PropertiesList = ({ properties, isLoading, isOpen, onOpen, onOpenChange, selected }: Props) => {
 
     return (
         <>
-            <Button onPress={onOpen}>Open Drawer</Button>
+            {/* <Button onPress={onOpen}>Open Drawer</Button> */}
             <Drawer isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
                 <DrawerContent>
                     {(onClose) => (
                         <>
-                            <DrawerHeader className="flex flex-col gap-1">Available Properties</DrawerHeader>
                             <DrawerBody>
+                                {isLoading && <div>Loading properties...</div>}
+                                {!isLoading && properties.length === 0 && <div>No properties found for the selected criteria.</div>}
+                                <DrawerHeader className="flex flex-col gap-1">Available Properties</DrawerHeader>
                                 {properties.map((property) => {
                                     return (
                                         <Card
@@ -49,18 +44,19 @@ export const PropertiesList = ({ properties, isLoading }: Props) => {
                                             width={property.width}
                                             height={property.height}
                                             horizontal={true}
+                                            option={selected}
                                         ></Card>
                                     )
                                 })}
                             </DrawerBody>
-                            <DrawerFooter>
+                            {/* <DrawerFooter>
                                 <Button color="danger" variant="light" onPress={onClose}>
                                     Close
                                 </Button>
                                 <Button color="primary" onPress={onClose}>
                                     Action
                                 </Button>
-                            </DrawerFooter>
+                            </DrawerFooter> */}
                         </>
                     )}
                 </DrawerContent>

@@ -1,9 +1,8 @@
 "use client";
 
-import { Dispatch, SetStateAction, useId, useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { DateRangePicker, Select, SelectItem } from '@heroui/react';
 import { getLocalTimeZone } from '@internationalized/date';
-import { propertiesMock } from '../Mocks/PropertiesMock';
 import { Property } from '../model/Property';
 import { fetchProperties } from '../service/PropertiesService';
 
@@ -20,20 +19,22 @@ interface Props {
     option: string;
     setIsLoading: Dispatch<SetStateAction<boolean>>;
     setProperties: Dispatch<SetStateAction<Property[]>>;
+    onOpen: ()=>void;
 }
 
-export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
+export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }: Props) => {
     const [location, setLocation] = useState('');
     const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
 
     const handleSearch = async () => {
-        console.log('handle', location)
+        setProperties([]);
+        onOpen(); // Open the drawer immediately
         if (!location || !dateRange) {
             return;
         }
         setIsLoading(true);
         try {
-            const results = await fetchProperties(location, dateRange);
+            const results = await fetchProperties(location, dateRange, option);
             setProperties(results);
         } catch (error) {
             console.error("Search failed:", error);
@@ -51,7 +52,7 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
         <form onSubmit={handleSubmit} className="bg-white flex flex-row items-center gap-4 w-full h-auto p-6 rounded-lg shadow-md">
             <div className="flex flex-col gap-1 flex-grow">
                 <label className="font-medium text-gray-700">Location</label>
-                <Select classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
+                <Select data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
                     const selectedKey = (selection as Set<string>).values().next().value;
                     setLocation(selectedKey || '');
                 }}>
@@ -65,6 +66,7 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties }: Props) => {
                 <label className="font-medium text-gray-700">When</label>
                 <DateRangePicker 
                     classNames={{inputWrapper: "bg-white", input: "text-xs"}}
+                    data-testid="date-range-picker"
                     onChange={(dates) => {
                         if (dates?.start && dates?.end) {
                             const timeZone = getLocalTimeZone();

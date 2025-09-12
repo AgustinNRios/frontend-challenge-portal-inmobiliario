@@ -3,7 +3,8 @@ import { propertiesMock } from "./PropertiesMock";
 
 export const getPropertiesByLocationAndDate = async (
     location: string,
-    requestedRange: { start: Date; end: Date }
+    requestedRange: { start: Date; end: Date },
+    option: string
 ): Promise<Property[]> => {
     console.log("Filtering for:", { location, requestedRange });
 
@@ -12,7 +13,10 @@ export const getPropertiesByLocationAndDate = async (
             const filteredProperties = propertiesMock.filter(property => {
                 // 1. Filter by location (case-insensitive)
                 const locationMatch = property.location.toLowerCase().includes(location.toLowerCase());
-                if (!locationMatch) {
+                // 2. Filter by type ('Sale' for 'Buy' option, 'Rent' for 'Rent' option)
+                const typeMatch = option === 'Buy' ? property.type === 'Sale' : property.type === 'Rent';
+
+                if (!locationMatch || !typeMatch) {
                     return false;
                 }
 
@@ -33,6 +37,6 @@ export const getPropertiesByLocationAndDate = async (
 
             console.log("Found properties:", filteredProperties);
             resolve(filteredProperties);
-        }, 500); // Simulate a 500ms network delay
+        }, 1500); // Simulate a 500ms network delay
     });
 };

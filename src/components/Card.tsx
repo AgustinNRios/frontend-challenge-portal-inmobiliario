@@ -13,9 +13,10 @@ interface Props {
     height: number;
     horizontal: boolean;
     scale?: boolean;
+    option: string;
 }
 
-export default function Card({image, price, location, direction, rooms, bathrooms, width, height, horizontal = false, scale}: Props) {
+export default function Card({image, price, rentalMonthPrice, location, direction, rooms, bathrooms, width, height, horizontal = false, scale, option}: Props) {
     return (
         <div className={`${scale ? "scale-75" : ""}`}>
             <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full" : "flex flex-col max-w-[300px]"}`}>
@@ -26,7 +27,11 @@ export default function Card({image, price, location, direction, rooms, bathroom
                     height={200}
                 />
                 <div className="bg-white flex flex-col px-6 gap-3 mt-3">
-                    <h2 className="text-2xl text-primary font-bold">{`$${price}`}<span className="text-sm font-light text-black">/month</span></h2>
+                                        {option === 'Buy' ? (
+                        <h2 className="text-2xl text-primary font-bold">{`$${price}`}</h2>
+                    ) : (
+                        <h2 className="text-2xl text-primary font-bold">{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
+                    )}
                     <h2 className="text-2xl text-black font-bold">{location}</h2>
                     <p className="text-base text-black font-medium">{direction}</p>
                     <div className="h-0.5 w-full bg-[#F0EFFB]"></div>
