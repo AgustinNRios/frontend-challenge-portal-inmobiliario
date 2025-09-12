@@ -21,25 +21,25 @@ export default function Home() {
                 <PropertyPoint popoverPlacement="left" property={propertiesMock[0]} isOpen={false} scale={false}/>
               </div>
               <div className="absolute top-3/12 left-9/12">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false} opacity={30}/>
+                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[1]} isOpen={false} opacity={30}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-4/12 left-1/2">
+                <PropertyPoint popoverPlacement="left" property={propertiesMock[2]} isOpen={false} size={2}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-7/12 left-5/12">
+                <PropertyPoint popoverPlacement="top" property={propertiesMock[3]} isOpen={false} opacity={50}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-9/12 left-2/12">
+                <PropertyPoint popoverPlacement="top" property={propertiesMock[4]} isOpen={false} size={2} opacity={50}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-10/12 left-4/12">
+                <PropertyPoint popoverPlacement="top-start" property={propertiesMock[5]} isOpen={false} opacity={30}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-9/12 left-11/12">
+                <PropertyPoint popoverPlacement="left" property={propertiesMock[6]} isOpen={false} size={2}/>
               </div>
-              <div className="absolute bottom-0 left-1/2">
-                <PropertyPoint popoverPlacement="bottom" property={propertiesMock[0]} isOpen={false}/>
+              <div className="absolute top-11/12 left-7/12">
+                <PropertyPoint popoverPlacement="top" property={propertiesMock[7]} isOpen={false}/>
               </div>
             </div>
           </div>

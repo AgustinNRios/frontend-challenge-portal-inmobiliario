@@ -44,8 +44,8 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
                 <Image
                     src={"/CommonPoint.svg"}
                     alt="icono"
-                    width={size == 1 ? 16 : size == 2 ? 12 : 8}
-                    height={size == 1 ? 16 : size == 2 ? 12 : 8}
+                    width={size == 1 ? 18 : size == 2 ? 14 : 10}
+                    height={size == 1 ? 18 : size == 2 ? 14 : 10}
                 />
             </button>
         </PopoverTrigger>
