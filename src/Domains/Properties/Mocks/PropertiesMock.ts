@@ -136,7 +136,7 @@ export const propertiesMock: Property[] = [
         image: "https://images.pexels.com/photos/209296/pexels-photo-209296.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         rentalMonthPrice: 3200,
         price: null,
-        location: "Chicago, IL",
+        location: "Barcelona, Spain",
         direction: "456 Oak St, Chicago, IL",
         rooms: 4,
         bathrooms: 3,

@@ -24,8 +24,8 @@ export const PropertiesList = ({ properties, isLoading, isOpen, onOpenChange }: 
                     {(onClose) => (
                         <DrawerBody>
                             {isLoading && <div>Loading properties...</div>}
-                            {!isLoading && properties.length === 0 && <div>No properties found for the selected criteria.</div>}
                             <DrawerHeader className="flex flex-col gap-1">Available Properties</DrawerHeader>
+                            {!isLoading && properties.length === 0 && <div>No properties found for the selected criteria.</div>}
                             {properties.map((property) => {
                                 return (
                                     <Card

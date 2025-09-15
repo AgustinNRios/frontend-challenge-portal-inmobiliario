@@ -18,7 +18,7 @@ interface Props {
 
 export const PlaceAndDateForm = ({ setIsLoading, setProperties, onOpen }: Props) => {
     const { publicationType } = useContext(PublicationTypeContext);
-    const [location, setLocation] = useState('');
+    const [location, setLocation] = useState('Barcelona, Spain');
     const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
 
     const handleSearch = async () => {
