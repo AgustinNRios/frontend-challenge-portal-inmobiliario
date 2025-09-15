@@ -19,16 +19,16 @@ interface Props {
 export default function Card({image, price, rentalMonthPrice, location, direction, rooms, bathrooms, width, height, horizontal = false, scale, option}: Props) {
     const autoOption = option === 'Buy' || option === 'Rent' ? option : price ? 'Buy' : rentalMonthPrice ? 'Rent' : '';
     return (
-        <div className={`${scale ? "scale-75" : ""}`}>
-            <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full rounded-2xl" : "flex flex-col"}`}>
+        <div className={`${scale ? "scale-65" : ""}`}>
+            <div className={`rounded-2xl ${scale ? "p-1 border-3 bg-white border-[#7065F0]" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full rounded-2xl" : "flex flex-col rounded-2xl"}`}>
                 <Image
-                    className={`${horizontal ? "w-[142px] h-[142px] object-cover rounded-2xl " : "w-full rounded-t-2xl "}`}
+                    className={`${horizontal ? "w-[142px] h-[142px] object-cover rounded-2xl " : "w-[324px] max-h-[200px] rounded-t-2xl "}`}
                     src={image}
                     alt="Foto casa"
-                    width={300}
+                    width={324}
                     height={200}
                 />
-                <div className={`bg-white flex flex-col mt-3 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2"}`}>
+                <div className={`bg-white rounded-2xl flex flex-col pt-6 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2 h-[216px]"}`}>
                     {autoOption === 'Buy' ? (
                         <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${price}`}</h2>
                     ) : autoOption === 'Rent' ? (
@@ -39,7 +39,7 @@ export default function Card({image, price, rentalMonthPrice, location, directio
                     <h2 className={` text-black font-bold ${!horizontal ? "text-2xl" : "text-xl truncate max-w-[100px]"}`}>{location}</h2>
                     <p className={`text-base text-black font-medium ${!horizontal ? "text-base" : "text-sm truncate max-w-[100px]"}`}>{direction}</p>
                     <div className="h-0.5 w-full bg-[#F0EFFB]"></div>
-                    <div className="flex flex-row justify-between mb-4">
+                    <div className="flex flex-row gap-6 mb-8">
                         <IconAndNumber
                             src="/IconBed.svg"
                             number={rooms}

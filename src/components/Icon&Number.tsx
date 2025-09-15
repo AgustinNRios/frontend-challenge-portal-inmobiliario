@@ -14,7 +14,7 @@ export default function IconAndNumber ({src, number}: Props) {
                 width={20}
                 height={20}
             />
-            <p className="text-gray-500 ">{number}</p>
+            <p className="text-gray-500 text-sm">{number}</p>
         </div>
     )
 }
