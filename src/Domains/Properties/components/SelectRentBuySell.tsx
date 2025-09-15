@@ -8,13 +8,11 @@ interface Props {
 }
 export const SelectRentBuySell = ({selected = 'Buy', setSelected}: Props) => {
     function onSell(){
-        setSelected("Sell")
         addToast({
             title: "Coming soon!",
             description: "This feature is not available at the moment.",
             color: 'danger'
         })
-        setSelected("Buy")
     }
     return (
         <div className="flex flex-col">
