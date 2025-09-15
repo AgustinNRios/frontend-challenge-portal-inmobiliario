@@ -19,14 +19,20 @@ export const PropertiesList = ({ properties, isLoading, isOpen, onOpenChange }: 
 
     return (
         <>
-            <Drawer data-testid="properties-list" isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
+            <Drawer data-testid="properties-list" isOpen={isOpen} onOpenChange={onOpenChange} size="md">
                 <DrawerContent>
                     {(onClose) => (
                         <DrawerBody>
-                            {isLoading && <div>Loading properties...</div>}
                             <DrawerHeader className="flex flex-col gap-1">Available Properties</DrawerHeader>
+                            {isLoading && (
+                                <div className="flex flex-col gap-4">
+                                    <Card isLoading={true} horizontal={true}/>
+                                    <Card isLoading={true} horizontal={true}/>
+                                    <Card isLoading={true} horizontal={true}/>
+                                </div>
+                            )}
                             {!isLoading && properties.length === 0 && <div>No properties found for the selected criteria.</div>}
-                            {properties.map((property) => {
+                            {!isLoading && properties.map((property) => {
                                 return (
                                     <Card
                                         key={property.id}

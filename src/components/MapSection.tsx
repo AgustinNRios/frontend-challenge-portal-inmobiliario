@@ -1,11 +1,9 @@
 import { propertiesMock } from "@/Domains/Properties/Mocks/PropertiesMock";
 import Image from "next/image";
-import FadeInOnView from "@/animations/FadeInOnView";
 import PropertyPoint from "@/Domains/Properties/components/PropertyPoint";
 
 export default function MapSection() {
     return (
-        <FadeInOnView>
             <div className="relative w-[681px] h-[826px]">
                 <Image
                     src={"/mapaFondo.webp"}
@@ -49,6 +47,5 @@ export default function MapSection() {
                         />
                     </div>
             </div>
-        </FadeInOnView>
     )
 }
