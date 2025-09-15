@@ -9,6 +9,8 @@ import { fetchProperties } from '../service/PropertiesService';
 import Image from 'next/image';
 import { PublicationTypeContext } from '../context/PublicationTypeContext';
 import { uniqueLocationsMock } from '../Mocks/PropertiesMock';
+import { addToast } from "@heroui/toast";
+import { PropertyType } from '../model/Property';
 
 interface Props {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
@@ -22,6 +24,14 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties, onOpen }: Props)
     const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
 
     const handleSearch = async () => {
+        if(dateRange == null && publicationType == PropertyType.Rent) {
+            addToast({
+                title: "Date Range Required",
+                description: "Please select a date range to search for rental properties.",
+                color: 'danger'
+            })
+            return
+        }
         setProperties([]);
         onOpen(); // Open the drawer immediately
         setIsLoading(true);

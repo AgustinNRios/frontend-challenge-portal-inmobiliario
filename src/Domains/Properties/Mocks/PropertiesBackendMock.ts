@@ -1,4 +1,3 @@
-import { addToast } from "@heroui/toast";
 import { Property, PropertyType } from "../model/Property";
 import { propertiesMock } from "./PropertiesMock";
 
@@ -11,14 +10,6 @@ export const getPropertiesByLocationAndDate = async (
 
     return new Promise((resolve) => {
         setTimeout(() => {
-            if(requestedRange == null && option == PropertyType.Rent) {
-                addToast({
-                    title: "Date Range Required",
-                    description: "Please select a date range to search for rental properties.",
-                    color: 'danger'
-                })
-                return resolve([]);
-            }
             if(location == '' && requestedRange == null) return resolve([]);
             
             const filteredProperties = propertiesMock.filter(property => {

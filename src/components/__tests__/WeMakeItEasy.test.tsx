@@ -2,6 +2,11 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import WeMakeItEasy from '../WeMakeItEasy';
 
+// Mock react-intersection-observer
+jest.mock('react-intersection-observer', () => ({
+    useInView: () => ({ ref: jest.fn(), inView: true }),
+}));
+
 // Mock the MainButton component
 jest.mock('../MainButton', () => {
     return jest.fn(({ text, img }) => (
@@ -18,7 +23,7 @@ describe('WeMakeItEasy component', () => {
 
         // Check heading and paragraph for tenants
         expect(screen.getByRole('heading', { name: /We make it easy for tenants and landlords./i })).toBeInTheDocument();
-        expect(screen.getByText(/Whether it’s selling your current home/i)).toBeInTheDocument();
+        expect(screen.getByText(/The best part\? you’ll save a bunch of money and time with our services./i)).toBeInTheDocument();
 
         // Check that MainButton is rendered
         const button = screen.getByRole('button', { name: /See more/i });
@@ -31,7 +36,7 @@ describe('WeMakeItEasy component', () => {
 
         // Check heading and paragraph for landlords
         expect(screen.getByRole('heading', { name: /We make it easy for landlords and tenants./i })).toBeInTheDocument();
-        expect(screen.getByText(/adsajdfhakvbfbvladbdkl/i)).toBeInTheDocument();
+        expect(screen.getByText(/Whether it’s selling your current home, getting financing, or buying a new home, we make it easy and efficient/i)).toBeInTheDocument();
 
         // Check that MainButton is rendered
         const button = screen.getByRole('button', { name: /See more/i });
