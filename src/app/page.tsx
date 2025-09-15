@@ -1,7 +1,7 @@
 import FirstSection from "@/components/FirstSection";
 import FadeInOnView from "@/animations/FadeInOnView";
 import SecondLazySection from "@/components/lazySections/SecondLazySection";
-import LazyMapSection from "@/components/MapSection";
+import MapSection from "@/components/MapSection";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
               </div>
             </div>
             <div className="overflow-auto max-w-[701px] max-h-[846px] scale-50 sm:scale-75 lg:scale-100">
-              <LazyMapSection/>
+              <MapSection/>
             </div>
           </div>
         </section>

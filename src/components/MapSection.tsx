@@ -1,27 +1,20 @@
-'use client'
 import { propertiesMock } from "@/Domains/Properties/Mocks/PropertiesMock";
 import Image from "next/image";
 import FadeInOnView from "@/animations/FadeInOnView";
-import LazyLoad from "./LazyLoad";
-import dynamic from "next/dynamic";
+import PropertyPoint from "@/Domains/Properties/components/PropertyPoint";
 
-const PropertyPoint = dynamic(() => import('@/Domains/Properties/components/PropertyPoint'), {
-    ssr: false,
-  });
-
-export default function LazyMapSection() {
+export default function MapSection() {
     return (
         <FadeInOnView>
-            <LazyLoad>
-                <div className="relative w-[681px] h-[826px]">
-                    <Image
-                        src={"/mapaFondo.webp"}
-                        alt="camino desde la posicion actual"
-                        width={701}
-                        height={846}
-                        className="w-[701px] h-[826px]"
-                        priority
-                    />
+            <div className="relative w-[681px] h-[826px]">
+                <Image
+                    src={"/mapaFondo.webp"}
+                    alt="camino desde la posicion actual"
+                    width={701}
+                    height={846}
+                    className="w-[701px] h-[826px]"
+                    priority
+                />
                     <div className="absolute top-[-15px] left-[340px]">
                         <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false} />
                     </div>
@@ -55,8 +48,7 @@ export default function LazyMapSection() {
                             className="!w-[215px] !h-[307px]"
                         />
                     </div>
-                </div>
-            </LazyLoad>
+            </div>
         </FadeInOnView>
     )
 }
