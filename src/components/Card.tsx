@@ -28,7 +28,7 @@ export default function Card({image, price, rentalMonthPrice, location, directio
                     width={324}
                     height={200}
                 />
-                <div className={`bg-white rounded-b-2xl flex flex-col pt-6 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2 h-[216px]"}`}>
+                <div className={`bg-white rounded-b-2xl flex flex-col  ${!horizontal ? "gap-3 px-6 h-[216px] pt-6" : "gap-1 px-2"}`}>
                     {autoOption === 'Buy' ? (
                         <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${price}`}</h2>
                     ) : autoOption === 'Rent' ? (
