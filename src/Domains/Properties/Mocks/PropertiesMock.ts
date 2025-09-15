@@ -9,7 +9,7 @@ export const propertiesMock: Property[] = [
         image: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         rentalMonthPrice: 2700,
         price: null, // Not for sale
-        location: "Palm Harbor, TX",
+        location: "Beverly Springfield",
         direction: "2821 Lake Sevilla, Palm Harbor, TX",
         rooms: 4,
         bathrooms: 2,

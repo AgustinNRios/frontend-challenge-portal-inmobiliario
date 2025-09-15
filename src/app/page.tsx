@@ -44,16 +44,16 @@ export default function Home() {
                 <div className="absolute top-[365px] left-[375px]">
                   <PropertyPoint popoverPlacement="right-start" property={propertiesMock[1]} isOpen={true} opacity={50}/>
                 </div>
-                <div className="absolute top-[515px] left-[110px]">
-                  <PropertyPoint popoverPlacement="top" property={propertiesMock[4]} isOpen={false} size={2} opacity={50}/>
+                <div className="absolute top-[470px] left-[110px]">
+                  <PropertyPoint popoverPlacement="top" property={propertiesMock[4]} isOpen={false} size={3} opacity={30}/>
                 </div>
-                <div className="absolute top-[555px] left-[357px]">
-                  <PropertyPoint popoverPlacement="top-start" property={propertiesMock[5]} isOpen={false} opacity={30}/>
+                <div className="absolute top-[530px] left-[250px]">
+                  <PropertyPoint popoverPlacement="top-start" property={propertiesMock[5]} isOpen={false} size={2} opacity={30}/>
                 </div>
                 <div className="absolute top-[515px] left-[610px]">
                   <PropertyPoint popoverPlacement="left" property={propertiesMock[6]} isOpen={false} size={2}/>
                 </div>
-                <div className="absolute top-[550px] left-[393px]">
+                <div className="absolute top-[665px] left-[280px]">
                   <PropertyPoint popoverPlacement="top" property={propertiesMock[7]} isOpen={false}/>
                 </div>
                 <div className="absolute top-[102px] left-[385px]">
