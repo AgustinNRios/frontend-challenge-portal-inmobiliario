@@ -37,7 +37,11 @@ Este proyecto va más allá: no solo cumple la consigna, sino que evidencia el d
   (Componentización y validación de formularios).
 - **Simulación de backend:**  
   Mock de datos y simulación asíncrona.
-
+- **Manejo de errores en el formulario:**
+  No se puede buscar Casas en renta sin rango de fechas
+  No se puede acceder a la funcion Vender
+- **Implementacion de esqueletons para estados de carga:**
+- **Implementacion de animaciónes y transiciones:**
 ---
 
 ## 🛠️ Buenas Prácticas y Conocimientos Demostrados
@@ -58,6 +62,22 @@ Este proyecto va más allá: no solo cumple la consigna, sino que evidencia el d
   Lazy loading, optimización de imágenes y Core Web Vitals monitoreados con PageSpeed Insights.
 - **Análisis del bundle:**  
   Análisis del bundle con `bundle-analyzer` para optimizar con base en datos.
+
+---
+
+## 🖼️ Screenshots y Resultados
+
+### Vista de Escritorio
+![Vista de Escritorio](./public/desktopPage.png)
+
+### Vistas Móviles
+
+| Vista Principal | Menú Abierto |
+| :---: | :---: |
+| ![Vista Móvil](./public/Mobile.png) | ![Menú Móvil](./public/MobileMenu.png) |
+
+### Reporte de PageSpeed Insights
+![Reporte de PageSpeed Insights](./public/ReportePageSpeed.png)
 
 ---
 

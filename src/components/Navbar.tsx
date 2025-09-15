@@ -76,9 +76,9 @@ export default function NavbarComponent () {
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent className="hidden md:flex flex-row gap-1 sm:gap-4 lg:gap-12 transition-all" justify="center">
-                <NavbarItem>Rent</NavbarItem>
-                <NavbarItem>Buy</NavbarItem>
-                <NavbarItem>Sell</NavbarItem>
+                <NavbarItem><button aria-label={"Go to Rent page"}>Rent</button></NavbarItem>
+                <NavbarItem><button aria-label={"Go to Buy page"}>Buy</button></NavbarItem>
+                <NavbarItem><button aria-label={"Go to Sell page"}>Sell</button></NavbarItem>
                 <Dropdown>
                     <NavbarItem>
                         <DropdownTrigger>

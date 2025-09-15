@@ -10,6 +10,7 @@ interface Props {
 export default function MainButton({text, bgColor, color, img}: Props) {
     return (
         <button 
+            aria-label={text}
             type="button"
             className={`py-3 px-4 flex flex-row rounded-lg ${bgColor} `}
         >

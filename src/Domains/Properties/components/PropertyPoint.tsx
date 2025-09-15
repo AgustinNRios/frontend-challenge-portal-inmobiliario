@@ -1,10 +1,11 @@
 'use client';
 import { Property } from "@/Domains/Properties/model/Property";
-import {Popover, PopoverTrigger, PopoverContent} from "@heroui/popover";
+import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
 import Card from "../../../components/Card";
 import Image from "next/image";
 import { useState, useContext } from "react";
 import { PublicationTypeContext } from "../context/PublicationTypeContext";
+import useWindowWidth from "@/hooks/useWindowWidth";
 
 interface Props {
     popoverPlacement:"top-start"|"top"|"top-end"|"bottom-start"|"bottom"|"bottom-end"|"right-start"|"right"|"right-end"|"left-start"|"left"|"left-end";
@@ -16,6 +17,7 @@ interface Props {
 }
 
 export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false, scale=true, opacity}: Props) {
+    const windowWidth = useWindowWidth();
     const { publicationType } = useContext(PublicationTypeContext);
     const [LocationHidden, setLocationHidden] = useState(!isOpen);
 
@@ -48,7 +50,7 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
             height={60}
             className={LocationHidden ? "opacity-0 mb-1" : "mb-1"}
         />
-        <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
+        <Popover onClose={() => setLocationHidden(true)} defaultOpen={windowWidth > 701 ? isOpen : false} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
             <button aria-label={`Ver detalles de la propiedad en ${property.location}`} className={`opacity-${publicationType === property.type? 100: 50 }`} onClick={() => setLocationHidden(!LocationHidden)}>
                 { property.id == '1' ? (
