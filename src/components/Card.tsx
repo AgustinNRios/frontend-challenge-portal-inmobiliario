@@ -28,7 +28,7 @@ export default function Card({image, price, rentalMonthPrice, location, directio
                     width={324}
                     height={200}
                 />
-                <div className={`bg-white rounded-2xl flex flex-col pt-6 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2 h-[216px]"}`}>
+                <div className={`bg-white rounded-b-2xl flex flex-col pt-6 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2 h-[216px]"}`}>
                     {autoOption === 'Buy' ? (
                         <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${price}`}</h2>
                     ) : autoOption === 'Rent' ? (
@@ -37,7 +37,7 @@ export default function Card({image, price, rentalMonthPrice, location, directio
                         <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
                     )}
                     <h2 className={` text-black font-bold ${!horizontal ? "text-2xl" : "text-xl truncate max-w-[100px]"}`}>{location}</h2>
-                    <p className={`text-base text-black font-medium ${!horizontal ? "text-base" : "text-sm truncate max-w-[100px]"}`}>{direction}</p>
+                    <p className={`text-base text-black/50 font-medium ${!horizontal ? "text-base" : "text-sm truncate max-w-[100px]"}`}>{direction}</p>
                     <div className="h-0.5 w-full bg-[#F0EFFB]"></div>
                     <div className="flex flex-row gap-6 mb-8">
                         <IconAndNumber

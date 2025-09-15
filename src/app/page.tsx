@@ -31,16 +31,16 @@ export default function Home() {
                     height={56}
                   />
                 </div> */}
-                <div className="absolute top-[5px] left-[285px]">
+                <div className="absolute top-[-15px] left-[340px]">
                   <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false}/>
                 </div>
-                <div className="absolute top-[165px] left-[540px]">
-                  <PropertyPoint popoverPlacement="bottom" property={propertiesMock[3]} isOpen={false} opacity={30}/>
+                <div className="absolute top-[117px] left-[550px]">
+                  <PropertyPoint popoverPlacement="bottom" property={propertiesMock[3]} size={2} isOpen={false} opacity={30}/>
                 </div>
-                <div className="absolute top-[260px] left-[515px]">
+                <div className="absolute top-[200px] left-[385px]">
                   <PropertyPoint popoverPlacement="left" property={propertiesMock[2]} isOpen={false} size={3}/>
                 </div>
-                <div className="absolute top-[335px] left-[309px]">
+                <div className="absolute top-[365px] left-[375px]">
                   <PropertyPoint popoverPlacement="right-start" property={propertiesMock[1]} isOpen={true} opacity={50}/>
                 </div>
                 <div className="absolute top-[515px] left-[110px]">
@@ -55,7 +55,7 @@ export default function Home() {
                 <div className="absolute top-[550px] left-[393px]">
                   <PropertyPoint popoverPlacement="top" property={propertiesMock[7]} isOpen={false}/>
                 </div>
-                <div className="absolute top-[102px] left-[300px]">
+                <div className="absolute top-[102px] left-[385px]">
                   <Image
                     src={"/path.svg"}
                     alt="camino desde la posicion actual"
