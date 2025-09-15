@@ -2,20 +2,9 @@
 
 import Image from "next/image";
 import MainButton from "./MainButton";
-import {
-    Navbar,
-    NavbarBrand,
-    NavbarContent,
-    NavbarItem,
-    NavbarMenuToggle,
-    NavbarMenu,
-    NavbarMenuItem,
-    Button,
-    DropdownItem,
-    DropdownTrigger,
-    Dropdown,
-    DropdownMenu,
-} from "@heroui/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@heroui/navbar";
+import { Button } from "@heroui/button";
+import { DropdownItem, DropdownTrigger, Dropdown, DropdownMenu } from "@heroui/dropdown";
 import { useState } from "react";
 
 interface Props {
@@ -67,9 +56,9 @@ export default function NavbarComponent () {
         "Resources"
     ]
     return (
-        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className=" w-full items-center justify-between" maxWidth="full">
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="h-18 w-full items-center justify-between border-b-3 border-gray-100" maxWidth="full">
             <NavbarContent>
-                <NavbarItem className="flex items-center gap-3">
+                <NavbarItem className="flex items-center">
                     <NavbarMenuToggle
                         aria-label={"Open navigation menu"}
                         className="md:hidden block text-black z-50"
@@ -86,11 +75,10 @@ export default function NavbarComponent () {
                     </NavbarBrand>
                 </NavbarItem>
             </NavbarContent>
-            <NavbarContent className="hidden md:flex flex-row gap-1  lg:gap-6 transition-all" justify="center">
+            <NavbarContent className="hidden md:flex flex-row gap-1 sm:gap-4 lg:gap-12 transition-all" justify="center">
                 <NavbarItem>Rent</NavbarItem>
                 <NavbarItem>Buy</NavbarItem>
                 <NavbarItem>Sell</NavbarItem>
-
                 <Dropdown>
                     <NavbarItem>
                         <DropdownTrigger>
@@ -126,7 +114,7 @@ export default function NavbarComponent () {
                                 type="button"
                                 aria-label="Resources"
                                 disableRipple
-                                className="flex items-center gap-1 p-0 bg-transparent data-[hover=true]:bg-transparent"
+                                className="flex items-center p-0 bg-transparent data-[hover=true]:bg-transparent"
                                 endContent={icons.chevron}
                                 radius="sm"
                                 variant="light"
@@ -152,13 +140,13 @@ export default function NavbarComponent () {
                 <NavbarItem>
                     <MainButton
                         text="Login"
-                        bgColor="bg-secondary border-2 border-gray-300"
+                        bgColor="bg-secondary outline outline-2 outline-gray-300"
                         color="text-secondary"
                     />
                 </NavbarItem>
                 <NavbarItem>
                     <MainButton
-                        text="Sign Up"
+                        text="Sign up"
                         bgColor="bg-primary"
                         color="text-white"
                     />

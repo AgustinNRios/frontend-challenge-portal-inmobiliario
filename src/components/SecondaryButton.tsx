@@ -7,7 +7,7 @@ interface Props {
     img?: string;
 }
 
-export default function MainButton({text, bgColor, color, img}: Props) {
+export default function BigMainButton({text, bgColor, color, img}: Props) {
     return (
         <button 
             type="button"

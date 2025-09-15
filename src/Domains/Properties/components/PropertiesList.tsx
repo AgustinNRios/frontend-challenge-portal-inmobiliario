@@ -4,7 +4,7 @@ import {
     DrawerContent,
     DrawerHeader,
     DrawerBody,
-} from "@heroui/react";
+} from "@heroui/drawer";
 import Card from '@/components/Card';
 import { Property } from '../model/Property';
 

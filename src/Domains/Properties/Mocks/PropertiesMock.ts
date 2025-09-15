@@ -64,8 +64,8 @@ export const propertiesMock: Property[] = [
         image: "https://images.pexels.com/photos/208736/pexels-photo-208736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         rentalMonthPrice: null, // Not for rent
         price: 1200000,
-        location: "Sunnyvale, CA",
-        direction: "789 Silicon Valley St, Sunnyvale, CA",
+        location: "Austin, TX",
+        direction: "789 Silicon Valley St, Austin, TX",
         rooms: 5,
         bathrooms: 4,
         width: 8,

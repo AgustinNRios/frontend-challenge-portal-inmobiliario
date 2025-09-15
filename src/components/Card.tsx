@@ -20,24 +20,24 @@ export default function Card({image, price, rentalMonthPrice, location, directio
     const autoOption = option === 'Buy' || option === 'Rent' ? option : price ? 'Buy' : rentalMonthPrice ? 'Rent' : '';
     return (
         <div className={`${scale ? "scale-75" : ""}`}>
-            <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full" : "flex flex-col max-w-[300px]"}`}>
+            <div className={`${scale ? "p-1 border-3 bg-white border-[#7065F0] rounded-2xl" : "border-1 border-[#F0EFFB] "} ${horizontal ? "flex flex-row w-full rounded-2xl" : "flex flex-col"}`}>
                 <Image
-                    className="rounded-t-2xl"
+                    className={`${horizontal ? "w-[142px] h-[142px] object-cover rounded-2xl " : "w-full rounded-t-2xl "}`}
                     src={image}
                     alt="Foto casa"
                     width={300}
                     height={200}
                 />
-                <div className="bg-white flex flex-col px-6 gap-3 mt-3">
+                <div className={`bg-white flex flex-col mt-3 ${!horizontal ? "gap-3 px-6 " : "gap-1 px-2"}`}>
                     {autoOption === 'Buy' ? (
-                        <h2 className="text-2xl text-primary font-bold">{`$${price}`}</h2>
+                        <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${price}`}</h2>
                     ) : autoOption === 'Rent' ? (
-                        <h2 className="text-2xl text-primary font-bold">{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
+                        <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
                     ) : (
-                        <h2 className="text-2xl text-primary font-bold">{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
+                        <h2 className={`text-primary font-bold whitespace-nowrap overflow-ellipsis ${!horizontal ? "text-2xl" : "text-md"}`}>{`$${rentalMonthPrice}`}<span className="text-sm font-light text-black">/month</span></h2>
                     )}
-                    <h2 className="text-2xl text-black font-bold">{location}</h2>
-                    <p className="text-base text-black font-medium">{direction}</p>
+                    <h2 className={` text-black font-bold ${!horizontal ? "text-2xl" : "text-xl truncate max-w-[100px]"}`}>{location}</h2>
+                    <p className={`text-base text-black font-medium ${!horizontal ? "text-base" : "text-sm truncate max-w-[100px]"}`}>{direction}</p>
                     <div className="h-0.5 w-full bg-[#F0EFFB]"></div>
                     <div className="flex flex-row justify-between mb-4">
                         <IconAndNumber

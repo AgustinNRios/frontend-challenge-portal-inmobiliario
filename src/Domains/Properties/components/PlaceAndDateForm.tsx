@@ -1,10 +1,12 @@
 "use client";
 
 import { Dispatch, SetStateAction, useState } from 'react';
-import { DateRangePicker, Select, SelectItem } from '@heroui/react';
+import { Select, SelectItem } from '@heroui/select';
+import { DateRangePicker } from "@heroui/date-picker";
 import { getLocalTimeZone } from '@internationalized/date';
 import { Property } from '../model/Property';
 import { fetchProperties } from '../service/PropertiesService';
+import Image from 'next/image';
 
 // Get unique locations from the mock data
 const uniqueLocationsMock = [
@@ -49,11 +51,11 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
         handleSearch();
     };
     return (
-        <form onSubmit={handleSubmit} className="bg-white flex flex-col lg:flex-row  lg:items-center gap-3 lg:gap-6 w-full h-auto p-6 rounded-lg shadow-md">
-            <div className='flex flex-row gap-6 flex-wrap lg:flex-nowrap w-full lg:w-auto'>
-                <div className="flex flex-col gap-1 flex-grow">
+        <form onSubmit={handleSubmit} className=" flex flex-col md:flex-row items-center justify-between gap-3 lg:w-[783px] lg:h-[104px] p-6 rounded-b-lg lg:rounded-r-lg shadow-md bg-white">
+            <div className='flex flex-col items-start lg:items-center justify-start gap-3 lg:gap-10 lg:flex-row'>
+                <div className="flex flex-col gap-0 flex-grow">
                     <label className="font-medium text-gray-700">Location</label>
-                    <Select aria-label="Location" data-testid="location-select" classNames={{trigger: "bg-white"}} placeholder="Select a location" onSelectionChange={selection => {
+                    <Select aria-label="Location" size='sm' data-testid="location-select" classNames={{trigger: "ps-0 shadow-none bg-white data-[hover=true]:bg-white min-w-[160px]", value: "font-bold text-black", selectorIcon: "hidden"}} placeholder="Barcelona, Spain" onSelectionChange={selection => {
                         const selectedKey = (selection as Set<string>).values().next().value;
                         setLocation(selectedKey || '');
                     }}>
@@ -62,13 +64,32 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
                         ))}
                     </Select>
                 </div>
-                <div className="w-px h-10 bg-gray-200"></div>
-                <div className="flex flex-col gap-1">
+                <div className="hidden lg:lg:block lg:w-px h-10 lg:bg-gray-200"></div>
+                <div className="relative flex flex-col gap-0">
                     <label className="font-medium text-gray-700">When</label>
-                    <DateRangePicker 
+                    {!dateRange && (
+                        <div className="absolute left-[-2px] top-6 p-2 ps-0 min-w-49 flex items-center z-10 bg-white pointer-events-none">
+                            <span className="text-sm font-bold text-black">Select Move-in Date</span>
+                        </div>
+                    )}
+                    <DateRangePicker
                         aria-label="When"
-                        classNames={{inputWrapper: "bg-white", input: "text-xs"}}
+                        size='sm'
+                        classNames={{
+                            inputWrapper: "max-h-[32px] ps-0 bg-white shadow-none ",
+                            input: "text-xs font-bold text-black",
+                            segment: "text-black font-bold !important",
+                        }}
                         data-testid="date-range-picker"
+                        selectorIcon={
+                            <Image
+                                src={"/Calendar.svg"}
+                                alt="Calendario"
+                                width={16}
+                                height={16}
+                                className={""}
+                            />
+                        }
                         onChange={(dates) => {
                             if (dates?.start && dates?.end) {
                                 const timeZone = getLocalTimeZone();
@@ -82,9 +103,9 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
                         }} 
                     />
                 </div>
-                <div className="w-px h-10 bg-gray-200"></div>
+                <div className="hidden lg:block w-px h-10 bg-gray-200"></div>
+                <button type="submit" className="py-4 px-6 rounded-lg bg-[#7065F0] text-white text-base font-medium w-full lg:max-w-48 whitespace-nowrap">Browse Properties</button>
             </div>
-            <button type="submit" className="py-2 px-6 rounded-lg bg-[#7065F0] text-white font-medium self-center lg:self-end max-w-48">Browse Properties</button>
         </form>
     );
 };

@@ -7,7 +7,7 @@ interface Props {
 
 export default function IconAndNumber ({src, number}: Props) {
     return (
-        <div className="flex flex-row gap-1">
+        <div className="flex flex-row gap-1 scale-75 sm:scale-100">
             <Image
                 src={src}
                 alt="icono"

@@ -1,6 +1,6 @@
 "use client"
 import { Dispatch, SetStateAction } from "react";
-import {addToast} from "@heroui/react";
+import {addToast} from "@heroui/toast";
 
 interface Props {
     setSelected: Dispatch<SetStateAction<string>>;
@@ -14,6 +14,7 @@ export const SelectRentBuySell = ({selected = 'Buy', setSelected}: Props) => {
             description: "This feature is not available at the moment.",
             color: 'danger'
         })
+        setSelected("Buy")
     }
     return (
         <div className="flex flex-col">
