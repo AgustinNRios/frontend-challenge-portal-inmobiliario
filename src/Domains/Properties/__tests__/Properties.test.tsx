@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { Properties } from '../components/Properties';
 import { fetchProperties } from '../service/PropertiesService';
 import { propertiesMock } from '../Mocks/PropertiesMock';
-import { Property } from '../model/Property';
+import { Property, PropertyType } from '../model/Property';
 
 // Mock the fetchProperties service
 jest.mock('../service/PropertiesService');
@@ -14,7 +14,7 @@ interface PlaceAndDateFormMockProps {
     onOpen: () => void;
     setIsLoading: (isLoading: boolean) => void;
     setProperties: (properties: Property[]) => void;
-    option: 'Sale' | 'Rent';
+    option: PropertyType;
 }
 
 jest.mock('../components/PlaceAndDateForm', () => ({
@@ -64,7 +64,7 @@ describe('Properties Component', () => {
 
     test.skip('searches for properties and displays the results', async () => {
         // Mock the API response for properties for sale
-        const mockResults = propertiesMock.filter(p => p.type === 'Sale');
+        const mockResults = propertiesMock.filter(p => p.type === PropertyType.Buy);
         mockedFetchProperties.mockResolvedValue(mockResults);
 
         render(<Properties />);

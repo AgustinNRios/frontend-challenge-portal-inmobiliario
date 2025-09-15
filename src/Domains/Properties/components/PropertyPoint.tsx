@@ -3,7 +3,8 @@ import { Property } from "@/Domains/Properties/model/Property";
 import {Popover, PopoverTrigger, PopoverContent} from "@heroui/popover";
 import Card from "../../../components/Card";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { PublicationTypeContext } from "../context/PublicationTypeContext";
 
 interface Props {
     popoverPlacement:"top-start"|"top"|"top-end"|"bottom-start"|"bottom"|"bottom-end"|"right-start"|"right"|"right-end"|"left-start"|"left"|"left-end";
@@ -15,7 +16,9 @@ interface Props {
 }
 
 export default function PropertyPoint({popoverPlacement, size = 1, property, isOpen=false, scale=true, opacity}: Props) {
+    const { publicationType } = useContext(PublicationTypeContext);
     const [LocationHidden, setLocationHidden] = useState(!isOpen);
+
     const content = (
         <PopoverContent aria-label={`Detalles de la propiedad en ${property.direction}, ${property.location}`} className="bg-transparent">
             <Card
@@ -30,12 +33,11 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
                 width={property.width}
                 height={property.height}
                 horizontal={false}
-                option={property.type == 'Sale' ? 'Buy' : 'Rent'}
+                option={property.type}
                 scale={scale}
             ></Card>
         </PopoverContent>
     );
-  
     return (
 
     <div className="flex flex-col items-center">
@@ -48,13 +50,22 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
         />
         <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
-            <button aria-label={`Ver detalles de la propiedad en ${property.location}`} className={`opacity-${opacity}`} onClick={() => setLocationHidden(!LocationHidden)}>
-                <Image
-                    src={"/CommonPoint.svg"}
-                    alt="Punto de interés en el mapa"
-                    width={size == 1 ? 18 : size == 2 ? 14 : 10}
-                    height={size == 1 ? 18 : size == 2 ? 14 : 10}
-                />
+            <button aria-label={`Ver detalles de la propiedad en ${property.location}`} className={`opacity-${publicationType === property.type? 100: 50 }`} onClick={() => setLocationHidden(!LocationHidden)}>
+                { property.id == '1' ? (
+                    <Image
+                    src={"/circle.svg"}
+                    alt="posicion actual"
+                    width={56}
+                    height={56}
+                    />
+                ):(
+                    <Image
+                        src={"/CommonPoint.svg"}
+                        alt="Punto de interés en el mapa"
+                        width={size == 1 ? 18 : size == 2 ? 14 : 10}
+                        height={size == 1 ? 18 : size == 2 ? 14 : 10}
+                    />
+                )}
             </button>
         </PopoverTrigger>
         {content}

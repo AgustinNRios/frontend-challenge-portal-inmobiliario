@@ -1,12 +1,13 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useState } from 'react';
 import { Select, SelectItem } from '@heroui/select';
 import { DateRangePicker } from "@heroui/date-picker";
 import { getLocalTimeZone } from '@internationalized/date';
 import { Property } from '../model/Property';
 import { fetchProperties } from '../service/PropertiesService';
 import Image from 'next/image';
+import { PublicationTypeContext } from '../context/PublicationTypeContext';
 
 // Get unique locations from the mock data
 const uniqueLocationsMock = [
@@ -18,13 +19,13 @@ const uniqueLocationsMock = [
 ];
 
 interface Props {
-    option: string;
     setIsLoading: Dispatch<SetStateAction<boolean>>;
     setProperties: Dispatch<SetStateAction<Property[]>>;
     onOpen: ()=>void;
 }
 
-export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }: Props) => {
+export const PlaceAndDateForm = ({ setIsLoading, setProperties, onOpen }: Props) => {
+    const { publicationType } = useContext(PublicationTypeContext);
     const [location, setLocation] = useState('');
     const [dateRange, setDateRange] = useState<{ start: Date; end: Date } | null>(null);
 
@@ -36,7 +37,7 @@ export const PlaceAndDateForm = ({ option, setIsLoading, setProperties, onOpen }
         }
         setIsLoading(true);
         try {
-            const results = await fetchProperties(location, dateRange, option);
+            const results = await fetchProperties(location, dateRange, publicationType);
             setProperties(results);
         } catch (error) {
             console.error("Search failed:", error);

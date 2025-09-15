@@ -1,4 +1,4 @@
-import { Property } from "../model/Property";
+import { Property, PropertyType } from "../model/Property";
 import { propertiesMock } from "./PropertiesMock";
 
 export const getPropertiesByLocationAndDate = async (
@@ -14,7 +14,7 @@ export const getPropertiesByLocationAndDate = async (
                 // 1. Filter by location (case-insensitive)
                 const locationMatch = property.location.toLowerCase().includes(location.toLowerCase());
                 // 2. Filter by type ('Sale' for 'Buy' option, 'Rent' for 'Rent' option)
-                const typeMatch = option === 'Buy' ? property.type === 'Sale' : property.type === 'Rent';
+                const typeMatch = option === PropertyType.Buy ? property.type === PropertyType.Buy : property.type === PropertyType.Rent;
 
                 if (!locationMatch || !typeMatch) {
                     return false;

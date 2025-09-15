@@ -23,7 +23,15 @@ export default function Home() {
                   height={846}
                   className="w-[701px] h-[826px]"
                 />
-                <div className="absolute top-[5px] left-[450px]">
+                {/* <div className="absolute top-[55px] left-[285px]">
+                  <Image
+                    src={"/circle.svg"}
+                    alt="posicion actual"
+                    width={56}
+                    height={56}
+                  />
+                </div> */}
+                <div className="absolute top-[5px] left-[285px]">
                   <PropertyPoint popoverPlacement="left-start" property={propertiesMock[0]} isOpen={true} scale={false}/>
                 </div>
                 <div className="absolute top-[165px] left-[540px]">
@@ -32,7 +40,7 @@ export default function Home() {
                 <div className="absolute top-[260px] left-[515px]">
                   <PropertyPoint popoverPlacement="left" property={propertiesMock[2]} isOpen={false} size={3}/>
                 </div>
-                <div className="absolute top-[470px] left-[490px]">
+                <div className="absolute top-[335px] left-[309px]">
                   <PropertyPoint popoverPlacement="right-start" property={propertiesMock[1]} isOpen={true} opacity={50}/>
                 </div>
                 <div className="absolute top-[515px] left-[110px]">
@@ -47,21 +55,13 @@ export default function Home() {
                 <div className="absolute top-[550px] left-[393px]">
                   <PropertyPoint popoverPlacement="top" property={propertiesMock[7]} isOpen={false}/>
                 </div>
-                <div className="absolute top-[109px] left-[290px]">
+                <div className="absolute top-[102px] left-[300px]">
                   <Image
                     src={"/path.svg"}
                     alt="camino desde la posicion actual"
-                    width={279}
-                    height={402}
-                    className="!w-[279px] !h-[402px]"
-                  />
-                </div>
-                <div className="absolute top-[55px] left-[450px]">
-                  <Image
-                    src={"/circle.svg"}
-                    alt="posicion actual"
-                    width={56}
-                    height={56}
+                    width={215}
+                    height={307}
+                    className="!w-[215px] !h-[307px]"
                   />
                 </div>
               </div>

@@ -2,7 +2,7 @@ export interface Property {
     id: string;
     ownerId: string;
     name: string;
-    type: string;
+    type: PropertyType; //publication type  
 
     //card info 
     image: string;
@@ -15,4 +15,10 @@ export interface Property {
     width: number;
     height: number;
     availability: { start: Date; end: Date; }[];
+}
+
+export enum PropertyType {
+    Rent = "Rent",
+    Buy = "Buy",
+    Sale = "Sale"
 }

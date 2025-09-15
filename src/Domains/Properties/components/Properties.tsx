@@ -12,7 +12,6 @@ import { PlaceAndDateForm } from './PlaceAndDateForm';
 import { useDisclosure } from '@heroui/use-disclosure';
 
 export const Properties = () => {
-    const [selected, setSelected] = useState("Buy");
     const [properties, setProperties] = useState<Property[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -21,11 +20,11 @@ export const Properties = () => {
         <div className="flex flex-col mt-6 items-start">
             <div className="relative">
                 <div className="absolute top-0 left-0">
-                    <SelectRentBuySell selected={selected} setSelected={setSelected}></SelectRentBuySell>
-                    <PlaceAndDateForm onOpen={onOpen} option={selected} setProperties={setProperties} setIsLoading={setIsLoading}></PlaceAndDateForm>
+                    <SelectRentBuySell></SelectRentBuySell>
+                    <PlaceAndDateForm onOpen={onOpen} setProperties={setProperties} setIsLoading={setIsLoading}></PlaceAndDateForm>
                 </div>
             </div>
-            <PropertiesList isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} isLoading={isLoading} properties={properties} selected={selected}></PropertiesList>
+            <PropertiesList isOpen={isOpen} onOpenChange={onOpenChange} isLoading={isLoading} properties={properties}></PropertiesList>
         </div>
     );
 };
