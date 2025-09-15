@@ -50,7 +50,7 @@ export default function PropertyPoint({popoverPlacement, size = 1, property, isO
             height={60}
             className={LocationHidden ? "opacity-0 mb-1" : "mb-1"}
         />
-        <Popover onClose={() => setLocationHidden(true)} defaultOpen={windowWidth > 701 ? isOpen : false} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
+        <Popover onClose={() => setLocationHidden(true)} defaultOpen={isOpen} shadow="none" className="bg-transparent" key={property.id+popoverPlacement} placement={popoverPlacement}>
         <PopoverTrigger>
             <button aria-label={`Ver detalles de la propiedad en ${property.location}`} className={`opacity-${publicationType === property.type? 100: 50 }`} onClick={() => setLocationHidden(!LocationHidden)}>
                 { property.id == '1' ? (
