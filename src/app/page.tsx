@@ -22,6 +22,7 @@ export default function Home() {
                   width={701}
                   height={846}
                   className="w-[701px] h-[826px]"
+                  priority
                 />
                 {/* <div className="absolute top-[55px] left-[285px]">
                   <Image
