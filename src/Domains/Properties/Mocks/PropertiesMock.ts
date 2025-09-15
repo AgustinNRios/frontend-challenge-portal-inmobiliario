@@ -146,4 +146,9 @@ export const propertiesMock: Property[] = [
             { start: new Date('2025-09-10'), end: new Date('2025-10-10') }
         ]
     }
-]
+];
+
+// Exporta locaciones únicas
+export const uniqueLocationsMock = Array.from(
+    new Set(propertiesMock.map((p) => p.location))
+);

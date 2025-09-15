@@ -2,26 +2,29 @@ import { Property, PropertyType } from "../model/Property";
 import { propertiesMock } from "./PropertiesMock";
 
 export const getPropertiesByLocationAndDate = async (
-    location: string,
-    requestedRange: { start: Date; end: Date } | null,
-    option: string
+    location: string | undefined,
+    requestedRange: { start: Date; end: Date } | null | undefined,
+    option: PropertyType | undefined
 ): Promise<Property[]> => {
     console.log("Filtering for:", { location, requestedRange });
 
     return new Promise((resolve) => {
         setTimeout(() => {
+            if(location == '' && requestedRange == null) return resolve([]);
+            
             const filteredProperties = propertiesMock.filter(property => {
+
                 // 1. Filter by location (case-insensitive)
-                const locationMatch = property.location.toLowerCase().includes(location.toLowerCase());
+                const locationMatch = !location || property.location.toLowerCase().includes(location.toLowerCase());
                 // 2. Filter by type ('Sale' for 'Buy' option, 'Rent' for 'Rent' option)
-                const typeMatch = option === PropertyType.Buy ? property.type === PropertyType.Buy : property.type === PropertyType.Rent;
+                const typeMatch = !option || (option === PropertyType.Buy ? property.type === PropertyType.Buy : property.type === PropertyType.Rent);
 
                 if (!locationMatch || !typeMatch) {
                     return false;
                 }
 
                 // If no date range is provided, we don't filter by date
-                if (!requestedRange || !requestedRange.start || !requestedRange.end) {
+                if (option == property.type || !requestedRange || !requestedRange.start || !requestedRange.end) {
                     return true;
                 }
 

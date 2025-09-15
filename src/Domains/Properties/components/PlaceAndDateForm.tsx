@@ -8,15 +8,7 @@ import { Property } from '../model/Property';
 import { fetchProperties } from '../service/PropertiesService';
 import Image from 'next/image';
 import { PublicationTypeContext } from '../context/PublicationTypeContext';
-
-// Get unique locations from the mock data
-const uniqueLocationsMock = [
-  "Palm Harbor, TX",
-  "Beverly Hills, CA",
-  "Miami, FL",
-  "Orlando, FL",
-  "Austin, TX"
-];
+import { uniqueLocationsMock } from '../Mocks/PropertiesMock';
 
 interface Props {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
@@ -32,10 +24,8 @@ export const PlaceAndDateForm = ({ setIsLoading, setProperties, onOpen }: Props)
     const handleSearch = async () => {
         setProperties([]);
         onOpen(); // Open the drawer immediately
-        if (!location) {
-            return;
-        }
         setIsLoading(true);
+        console.log('valores del input', location, dateRange, publicationType);
         try {
             const results = await fetchProperties(location, dateRange, publicationType);
             setProperties(results);

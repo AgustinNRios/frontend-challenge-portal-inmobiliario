@@ -19,7 +19,7 @@ export const PropertiesList = ({ properties, isLoading, isOpen, onOpenChange }: 
 
     return (
         <>
-            <Drawer isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
+            <Drawer data-testid="properties-list" isOpen={isOpen} onOpenChange={onOpenChange} size="3xl">
                 <DrawerContent>
                     {(onClose) => (
                         <DrawerBody>
