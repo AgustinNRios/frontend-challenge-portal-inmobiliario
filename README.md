@@ -48,6 +48,8 @@ Este proyecto va más allá: no solo cumple la consigna, sino que evidencia el d
 
 - **Diseño Responsive Fiel al Original:**
   Implementación responsive que respeta el diseño en todos los dispositivos, demostrando atención al detalle más allá de los requisitos explícitos.
+- **Animaciónes**  
+  Animaciónes de entrada y card con tilt.
 - **Buenas prácticas y atención al detalle:**  
   Componentización, variables de color, tipografía y componentes reutilizables.
 - **Testing:**  
@@ -61,7 +63,7 @@ Este proyecto va más allá: no solo cumple la consigna, sino que evidencia el d
 - **Performance:**  
   Lazy loading, optimización de imágenes y Core Web Vitals monitoreados con PageSpeed Insights.
 - **Análisis del bundle:**  
-  Análisis del bundle con `bundle-analyzer` para optimizar con base en datos.
+  Análisis del bundle con bundle-analyzer para optimizar con base en datos.
 
 ---
 
