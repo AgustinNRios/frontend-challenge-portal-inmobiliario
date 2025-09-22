@@ -41,7 +41,6 @@ Este proyecto va más allá: no solo cumple la consigna, sino que evidencia el d
   No se puede buscar Casas en renta sin rango de fechas
   No se puede acceder a la funcion Vender
 - **Implementacion de esqueletons para estados de carga:**
-- **Implementacion de animaciónes y transiciones:**
 ---
 
 ## 🛠️ Buenas Prácticas y Conocimientos Demostrados
